@@ -1,4 +1,5 @@
 PODS:
+  - BothamUI (2.0.0)
   - Nimble (7.0.1)
   - OHHTTPStubs/Core (6.0.0)
   - OHHTTPStubs/Default (6.0.0):
@@ -14,17 +15,24 @@ PODS:
   - OHHTTPStubs/Swift (6.0.0):
     - OHHTTPStubs/Default
   - Result (3.2.3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
+  - BothamUI (~> 2.0)
   - Nimble
   - OHHTTPStubs/Swift
   - Result
+  - SDWebImage
 
 SPEC CHECKSUMS:
+  BothamUI: 5d1073124d4b14e32868a3eeb37509f1e8a73638
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 7a2341efcb1d5d11fb75c26370ea80587a70ecf3
+PODFILE CHECKSUM: a6003f9d25b862d405b7eb7ca0412394cb529733
 
 COCOAPODS: 1.2.0
