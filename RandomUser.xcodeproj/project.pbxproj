@@ -18,7 +18,7 @@
 		E2905DB01F05339200C40F00 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAC1F05339200C40F00 /* UserDTO.swift */; };
 		E2905DB11F05339200C40F00 /* PictureDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAD1F05339200C40F00 /* PictureDTO.swift */; };
 		E2905DB21F05339200C40F00 /* LocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAE1F05339200C40F00 /* LocationDTO.swift */; };
-		E2905DB51F0533AA00C40F00 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB41F0533AA00C40F00 /* Date+Extensions.swift */; };
+		E2905DB51F0533AA00C40F00 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB41F0533AA00C40F00 /* Date.swift */; };
 		E2905DB71F0533DD00C40F00 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB61F0533DD00C40F00 /* Resource.swift */; };
 		E2905DBA1F0533E200C40F00 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB81F0533E200C40F00 /* APIClient.swift */; };
 		E2905DBB1F0533E200C40F00 /* APIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB91F0533E200C40F00 /* APIClientError.swift */; };
@@ -67,7 +67,7 @@
 		E2905DAC1F05339200C40F00 /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		E2905DAD1F05339200C40F00 /* PictureDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDTO.swift; sourceTree = "<group>"; };
 		E2905DAE1F05339200C40F00 /* LocationDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDTO.swift; sourceTree = "<group>"; };
-		E2905DB41F0533AA00C40F00 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		E2905DB41F0533AA00C40F00 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E2905DB61F0533DD00C40F00 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		E2905DB81F0533E200C40F00 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E2905DB91F0533E200C40F00 /* APIClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
@@ -149,10 +149,9 @@
 		E2905D801F052A6600C40F00 /* RandomUser */ = {
 			isa = PBXGroup;
 			children = (
-				E2905DB31F0533A400C40F00 /* Utils */,
+				E2905DB31F0533A400C40F00 /* Extensions */,
 				E2905D811F052A6600C40F00 /* AppDelegate.swift */,
 				E2905DA61F05335E00C40F00 /* APIClient */,
-				E2905DA41F052D3500C40F00 /* Utils */,
 				E2905DA31F052D1C00C40F00 /* Views */,
 				E2905DA21F052D1000C40F00 /* Resources */,
 				E2905DA11F052CEF00C40F00 /* Supporting files */,
@@ -197,13 +196,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		E2905DA41F052D3500C40F00 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
 		E2905DA61F05335E00C40F00 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,12 +230,12 @@
 			name = DTOs;
 			sourceTree = "<group>";
 		};
-		E2905DB31F0533A400C40F00 /* Utils */ = {
+		E2905DB31F0533A400C40F00 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E2905DB41F0533AA00C40F00 /* Date+Extensions.swift */,
+				E2905DB41F0533AA00C40F00 /* Date.swift */,
 			);
-			name = Utils;
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		E2905DD11F05340900C40F00 /* JSON */ = {
@@ -489,7 +481,7 @@
 				E2905DB71F0533DD00C40F00 /* Resource.swift in Sources */,
 				E2905DE71F0534AB00C40F00 /* RandomUserAPIClient.swift in Sources */,
 				E2905D841F052A6600C40F00 /* ViewController.swift in Sources */,
-				E2905DB51F0533AA00C40F00 /* Date+Extensions.swift in Sources */,
+				E2905DB51F0533AA00C40F00 /* Date.swift in Sources */,
 				E2905DBA1F0533E200C40F00 /* APIClient.swift in Sources */,
 				E2905DAF1F05339200C40F00 /* GetUsersDTO.swift in Sources */,
 				E2905DB11F05339200C40F00 /* PictureDTO.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  Date+Extensions.swift
+//  Date.swift
 //  RandomUser
 //
 //  Created by Antonio Calvo on 29/06/2017.
