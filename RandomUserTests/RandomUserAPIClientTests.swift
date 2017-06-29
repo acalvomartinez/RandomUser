@@ -123,6 +123,7 @@ class RandomUserAPIClientTests: XCTestCase {
   }
   
   fileprivate func assertContainsExpectedUserDTO(userDTO: UserDTO?) {
+    expect(userDTO?.username).to(equal("silvergorilla792"))
     expect(userDTO?.firstName).to(equal("juho"))
     expect(userDTO?.lastName).to(equal("luoma"))
     expect(userDTO?.email).to(equal("juho.luoma@example.com"))

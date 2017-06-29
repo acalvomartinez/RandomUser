@@ -14,6 +14,7 @@ enum Gender: String {
 }
 
 struct UserDTO {
+    let username: String
     let firstName: String
     let lastName: String
     let email: String
@@ -27,6 +28,8 @@ struct UserDTO {
 extension UserDTO: JSONDecodable {
   init?(dictionary: JSONDictionary) {
     guard
+      let loginJSON = dictionary["login"] as? JSONDictionary,
+      let username = loginJSON["username"] as? String,
       let nameJSON = dictionary["name"] as? JSONDictionary,
       let firstName = nameJSON["first"] as? String,
       let lastName = nameJSON["last"] as? String,
@@ -43,6 +46,7 @@ extension UserDTO: JSONDecodable {
       else {
         return nil
     }
+    self.username = username
     self.firstName = firstName
     self.lastName = lastName
     self.email = email
