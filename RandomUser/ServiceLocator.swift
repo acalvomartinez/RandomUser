@@ -20,6 +20,7 @@ class ServiceLocator {
     // MARK: - Private
     
     fileprivate func provideUserViewController() -> UIViewController {
+        let usersViewController: UsersViewController = storyBoard.instantiateViewController("UsersViewController")
         
         
         
