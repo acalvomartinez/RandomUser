@@ -26,7 +26,6 @@ extension APIClientError: Equatable {
 
 extension APIClientError {
   static func build(error: Error) -> APIClientError {
-    print("\(error._code) \(NSURLErrorNetworkConnectionLost)")
     switch error._code {
     case 500:
       return .internalServerDrama

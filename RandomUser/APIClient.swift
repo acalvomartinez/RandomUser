@@ -60,7 +60,6 @@ final class APIClient {
     let task = self.session.dataTask(with: request) { (data, response, error) in
       if let error = error {
         let clientError = APIClientError.build(error: error)
-        print(clientError)
         completion(Result(error: clientError))
       } else {
         guard let httpResponse = response as? HTTPURLResponse else {
