@@ -21,7 +21,7 @@ class RandomUserAPIClientTests: XCTestCase {
     OHHTTPStubs.removeAllStubs()
   }
   
-  func testReturnsGetUsersResponse() {
+  func testReturnsGetUsersResultResponse() {
     let url = URL(string: RandomUserAPIClientConfiguration.baseEndpoint.appending(RandomUserAPIClientConfiguration.getUsersEndpoint))
     let path = url?.path
     stub(condition: isPath(path!)) { request in
@@ -32,7 +32,7 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsers, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -48,7 +48,7 @@ class RandomUserAPIClientTests: XCTestCase {
       return OHHTTPStubsResponse(error: NSError.networkError())
     }
     
-    var result: Result<GetUsers, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -67,7 +67,7 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsers, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -87,7 +87,7 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsers, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -102,7 +102,7 @@ class RandomUserAPIClientTests: XCTestCase {
       return OHHTTPStubsResponse(error: NSError.crashError())
     }
     
-    var result: Result<GetUsers, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -112,7 +112,7 @@ class RandomUserAPIClientTests: XCTestCase {
 
   // MARK: - Private
   
-  fileprivate func assertContainsExpectedGetCharacters(getUsers: GetUsers?) {
+  fileprivate func assertContainsExpectedGetCharacters(getUsers: GetUsersResult?) {
     expect(getUsers).toNot(beNil())
     expect(getUsers?.results).to(equal(10))
     expect(getUsers?.page).to(equal(1))

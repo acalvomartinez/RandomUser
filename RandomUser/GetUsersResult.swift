@@ -1,5 +1,5 @@
 //
-//  GetUsers.swift
+//  GetUsersResult.swift
 //  RandomUser
 //
 //  Created by Toni on 29/06/2017.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct GetUsers {
+struct GetUsersResult {
   let page: Int
   let results: Int
   let users: [User]?
 }
 
-extension GetUsers: JSONDecodable {
+extension GetUsersResult: JSONDecodable {
   init?(dictionary: JSONDictionary) {
     guard
       let infoJSON = dictionary["info"] as? JSONDictionary,

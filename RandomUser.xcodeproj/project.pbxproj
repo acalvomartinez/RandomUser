@@ -12,7 +12,7 @@
 		E2905D891F052A6600C40F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2905D881F052A6600C40F00 /* Assets.xcassets */; };
 		E2905D8C1F052A6600C40F00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2905D8A1F052A6600C40F00 /* LaunchScreen.storyboard */; };
 		E2905DAA1F05338D00C40F00 /* JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DA91F05338D00C40F00 /* JSONDecodeable.swift */; };
-		E2905DAF1F05339200C40F00 /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAB1F05339200C40F00 /* GetUsers.swift */; };
+		E2905DAF1F05339200C40F00 /* GetUsersResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAB1F05339200C40F00 /* GetUsersResult.swift */; };
 		E2905DB01F05339200C40F00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAC1F05339200C40F00 /* User.swift */; };
 		E2905DB11F05339200C40F00 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAD1F05339200C40F00 /* Picture.swift */; };
 		E2905DB21F05339200C40F00 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAE1F05339200C40F00 /* Location.swift */; };
@@ -66,7 +66,7 @@
 		E2905D921F052A6600C40F00 /* RandomUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2905D981F052A6600C40F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2905DA91F05338D00C40F00 /* JSONDecodeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodeable.swift; sourceTree = "<group>"; };
-		E2905DAB1F05339200C40F00 /* GetUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
+		E2905DAB1F05339200C40F00 /* GetUsersResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GetUsersResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E2905DAC1F05339200C40F00 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E2905DAD1F05339200C40F00 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		E2905DAE1F05339200C40F00 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		E2905DD71F05341500C40F00 /* getUsersEmptyResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getUsersEmptyResponse.json; sourceTree = "<group>"; };
 		E2905DDF1F05342700C40F00 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		E2905DE21F05343800C40F00 /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
-		E2905DE41F0534AB00C40F00 /* RandomUserAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserAPIClient.swift; sourceTree = "<group>"; };
+		E2905DE41F0534AB00C40F00 /* RandomUserAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RandomUserAPIClient.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E2905DE51F0534AB00C40F00 /* RandomUserAPIClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserAPIClientError.swift; sourceTree = "<group>"; };
 		E2905DE61F0534AB00C40F00 /* RandomUserAPIClientConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserAPIClientConfiguration.swift; sourceTree = "<group>"; };
 		E2905DEA1F0534B900C40F00 /* RandomUserAPIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserAPIClientTests.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 		E2905DA81F05337B00C40F00 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				E2905DAB1F05339200C40F00 /* GetUsers.swift */,
+				E2905DAB1F05339200C40F00 /* GetUsersResult.swift */,
 				E2905DAC1F05339200C40F00 /* User.swift */,
 				E2905DAD1F05339200C40F00 /* Picture.swift */,
 				E2905DAE1F05339200C40F00 /* Location.swift */,
@@ -546,7 +546,7 @@
 				E2905DB51F0533AA00C40F00 /* Date.swift in Sources */,
 				E2905DBA1F0533E200C40F00 /* APIClient.swift in Sources */,
 				E2905DF41F0539F400C40F00 /* UIColor.swift in Sources */,
-				E2905DAF1F05339200C40F00 /* GetUsers.swift in Sources */,
+				E2905DAF1F05339200C40F00 /* GetUsersResult.swift in Sources */,
 				E2905DB11F05339200C40F00 /* Picture.swift in Sources */,
 				E2905DF21F05398D00C40F00 /* RandomUserViewController.swift in Sources */,
 				E2905DB21F05339200C40F00 /* Location.swift in Sources */,
