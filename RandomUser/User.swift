@@ -61,3 +61,12 @@ extension User: JSONDecodable {
     self.registeredAt = registered
   }
 }
+
+extension User: Hashable, Equatable {
+  var hashValue: Int { return username.hashValue ^ username.hashValue }
+}
+
+func ==(lhs: User, rhs: User) -> Bool {
+  return lhs.username == rhs.username
+}
+

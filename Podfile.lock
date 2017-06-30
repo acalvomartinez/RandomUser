@@ -18,6 +18,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
   - BothamUI (~> 2.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift
   - Result
   - SDWebImage
+  - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   BothamUI: 5d1073124d4b14e32868a3eeb37509f1e8a73638
@@ -32,7 +34,8 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: a6003f9d25b862d405b7eb7ca0412394cb529733
+PODFILE CHECKSUM: 151ea158919cfd6c0f074ff020adcaf01a635f9c
 
 COCOAPODS: 1.2.0
