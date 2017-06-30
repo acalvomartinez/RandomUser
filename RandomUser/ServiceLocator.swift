@@ -21,11 +21,25 @@ class ServiceLocator {
     
     fileprivate func provideUserViewController() -> UIViewController {
         let usersViewController: UsersViewController = storyBoard.instantiateViewController("UsersViewController")
-        
-        
-        
-        return UIViewController()
+        let presenter = provideUsersPresenter(usersViewController)
+        let dataSource = provideUsersDataSource()
+        usersViewController.presenter = presenter
+        usersViewController.dataSource = dataSource
+        usersViewController.delegate = BothamTableViewNavigationDelegate(dataSource: dataSource, presenter: presenter)
+        return usersViewController
     }
+    
+
+    
+    fileprivate func provideUsersPresenter(_ ui: UsersUI) -> UsersPresenter {
+        // Add use case
+        return UsersPresenter(ui: ui)
+    }
+    
+    fileprivate func provideUsersDataSource() -> BothamTableViewDataSource<UsersListItem, UserTableViewCell> {
+        return BothamTableViewDataSource<UsersListItem, UserTableViewCell>()
+    }
+    
     
     
     fileprivate lazy var storyBoard: BothamStoryboard = {
