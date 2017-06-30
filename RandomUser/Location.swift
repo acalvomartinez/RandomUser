@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct LocationDTO {
+struct Location {
     let street: String
     let city: String
     let state: String
 }
 
-extension LocationDTO: JSONDecodable {
+extension Location: JSONDecodable {
   init?(dictionary: JSONDictionary) {
     guard
       let street = dictionary["street"] as? String,

@@ -18,11 +18,14 @@ class UserTableViewCell: UITableViewCell, BothamViewCell {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
-    func configure(forItem item: UsersListItem) {
-        nameLabel.text = item.name
+    func configure(forItem item: User) {
+        nameLabel.text = item.displayName
         emailLabel.text = item.email
         phoneLabel.text = item.phone
-        photoImageView.sd_setImage(with: item.photo as URL!)
+        
+        let urlPicture = item.picture.pictureURL(size: .large)
+        photoImageView.sd_setImage(with: urlPicture)
+        
         accessibilityLabel = item.username
     }
 }

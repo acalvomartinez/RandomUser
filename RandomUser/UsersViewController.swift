@@ -13,7 +13,7 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource: BothamTableViewDataSource<UsersListItem, UserTableViewCell>!
+    var dataSource: BothamTableViewDataSource<User, UserTableViewCell>!
     var delegate: UITableViewDelegate!
     
     override func viewDidLoad() {

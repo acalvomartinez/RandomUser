@@ -36,8 +36,8 @@ class ServiceLocator {
         return UsersPresenter(ui: ui)
     }
     
-    fileprivate func provideUsersDataSource() -> BothamTableViewDataSource<UsersListItem, UserTableViewCell> {
-        return BothamTableViewDataSource<UsersListItem, UserTableViewCell>()
+    fileprivate func provideUsersDataSource() -> BothamTableViewDataSource<User, UserTableViewCell> {
+        return BothamTableViewDataSource<User, UserTableViewCell>()
     }
     
     

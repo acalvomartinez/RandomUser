@@ -1,5 +1,5 @@
 //
-//  UserDTO.swift
+//  User.swift
 //  RandomUser
 //
 //  Created by Antonio Calvo on 28/06/2017.
@@ -13,19 +13,23 @@ enum Gender: String {
   case female
 }
 
-struct UserDTO {
+struct User {
     let username: String
     let firstName: String
     let lastName: String
     let email: String
     let phone: String
     let gender: Gender
-    let location: LocationDTO
-    let picture: PictureDTO
+    let location: Location
+    let picture: Picture
     let registeredAt: Date
+    
+    var displayName: String {
+        return firstName.appendingFormat(" %s", lastName)
+    }
 }
 
-extension UserDTO: JSONDecodable {
+extension User: JSONDecodable {
   init?(dictionary: JSONDictionary) {
     guard
       let loginJSON = dictionary["login"] as? JSONDictionary,
@@ -38,9 +42,9 @@ extension UserDTO: JSONDecodable {
       let email = dictionary["email"] as? String,
       let phone = dictionary["phone"] as? String,
       let locationJSON = dictionary["location"] as? JSONDictionary,
-      let location: LocationDTO = JSONDecoder.decode(locationJSON),
+      let location: Location = JSONDecoder.decode(locationJSON),
       let pictureJSON = dictionary["picture"] as? JSONDictionary,
-      let picture: PictureDTO = JSONDecoder.decode(pictureJSON),
+      let picture: Picture = JSONDecoder.decode(pictureJSON),
       let restisteredString = dictionary["registered"] as? String,
       let registered = Date.parse(restisteredString)
       else {

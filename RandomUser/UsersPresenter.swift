@@ -20,7 +20,7 @@ class UsersPresenter: BothamPresenter, BothamNavigationPresenter {
         
     }
     
-    func itemWasTapped(_ item: UsersListItem) {
+    func itemWasTapped(_ item: User) {
         
     }
 }

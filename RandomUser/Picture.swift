@@ -1,5 +1,5 @@
 //
-//  PictureDTO.swift
+//  Picture.swift
 //  RandomUser
 //
 //  Created by Antonio Calvo on 28/06/2017.
@@ -14,13 +14,13 @@ enum PictureSize {
   case thumbnail
 }
 
-struct PictureDTO {
+struct Picture {
     let large: String
     let medium: String
     let thumbnail: String
 }
 
-extension PictureDTO {
+extension Picture {
   func pictureURL(size: PictureSize) -> URL? {
     switch size {
     case .large:
@@ -33,7 +33,7 @@ extension PictureDTO {
   }
 }
 
-extension PictureDTO: JSONDecodable {
+extension Picture: JSONDecodable {
   init?(dictionary: JSONDictionary) {
     guard
       let large = dictionary["large"] as? String,

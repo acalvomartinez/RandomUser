@@ -48,6 +48,9 @@
                             <constraint firstAttribute="trailing" secondItem="fMs-BU-XIv" secondAttribute="trailing" id="zZF-eZ-MJh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="fMs-BU-XIv" id="HG4-og-GdK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAd-g3-qad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,10 +12,10 @@
 		E2905D891F052A6600C40F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2905D881F052A6600C40F00 /* Assets.xcassets */; };
 		E2905D8C1F052A6600C40F00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2905D8A1F052A6600C40F00 /* LaunchScreen.storyboard */; };
 		E2905DAA1F05338D00C40F00 /* JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DA91F05338D00C40F00 /* JSONDecodeable.swift */; };
-		E2905DAF1F05339200C40F00 /* GetUsersDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAB1F05339200C40F00 /* GetUsersDTO.swift */; };
-		E2905DB01F05339200C40F00 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAC1F05339200C40F00 /* UserDTO.swift */; };
-		E2905DB11F05339200C40F00 /* PictureDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAD1F05339200C40F00 /* PictureDTO.swift */; };
-		E2905DB21F05339200C40F00 /* LocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAE1F05339200C40F00 /* LocationDTO.swift */; };
+		E2905DAF1F05339200C40F00 /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAB1F05339200C40F00 /* GetUsers.swift */; };
+		E2905DB01F05339200C40F00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAC1F05339200C40F00 /* User.swift */; };
+		E2905DB11F05339200C40F00 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAD1F05339200C40F00 /* Picture.swift */; };
+		E2905DB21F05339200C40F00 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DAE1F05339200C40F00 /* Location.swift */; };
 		E2905DB51F0533AA00C40F00 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB41F0533AA00C40F00 /* Date.swift */; };
 		E2905DB71F0533DD00C40F00 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB61F0533DD00C40F00 /* Resource.swift */; };
 		E2905DBA1F0533E200C40F00 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DB81F0533E200C40F00 /* APIClient.swift */; };
@@ -39,7 +39,6 @@
 		E2905DFB1F053F4800C40F00 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DFA1F053F4800C40F00 /* UsersViewController.swift */; };
 		E2905DFD1F053F8700C40F00 /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DFC1F053F8700C40F00 /* UsersPresenter.swift */; };
 		E2905DFF1F05427E00C40F00 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DFE1F05427E00C40F00 /* UserTableViewCell.swift */; };
-		E2905E031F05434A00C40F00 /* UsersListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905E021F05434A00C40F00 /* UsersListItem.swift */; };
 		FC35FF95207D57B40ED3DA2E /* Pods_RandomUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4477EFD5E80D97E468DBE7 /* Pods_RandomUser.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,10 +66,10 @@
 		E2905D921F052A6600C40F00 /* RandomUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2905D981F052A6600C40F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2905DA91F05338D00C40F00 /* JSONDecodeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodeable.swift; sourceTree = "<group>"; };
-		E2905DAB1F05339200C40F00 /* GetUsersDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsersDTO.swift; sourceTree = "<group>"; };
-		E2905DAC1F05339200C40F00 /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
-		E2905DAD1F05339200C40F00 /* PictureDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDTO.swift; sourceTree = "<group>"; };
-		E2905DAE1F05339200C40F00 /* LocationDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDTO.swift; sourceTree = "<group>"; };
+		E2905DAB1F05339200C40F00 /* GetUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
+		E2905DAC1F05339200C40F00 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E2905DAD1F05339200C40F00 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		E2905DAE1F05339200C40F00 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E2905DB41F0533AA00C40F00 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E2905DB61F0533DD00C40F00 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		E2905DB81F0533E200C40F00 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 		E2905DFA1F053F4800C40F00 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		E2905DFC1F053F8700C40F00 /* UsersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
 		E2905DFE1F05427E00C40F00 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		E2905E021F05434A00C40F00 /* UsersListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListItem.swift; sourceTree = "<group>"; };
 		FB4477EFD5E80D97E468DBE7 /* Pods_RandomUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -236,10 +234,10 @@
 		E2905DA81F05337B00C40F00 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				E2905DAB1F05339200C40F00 /* GetUsersDTO.swift */,
-				E2905DAC1F05339200C40F00 /* UserDTO.swift */,
-				E2905DAD1F05339200C40F00 /* PictureDTO.swift */,
-				E2905DAE1F05339200C40F00 /* LocationDTO.swift */,
+				E2905DAB1F05339200C40F00 /* GetUsers.swift */,
+				E2905DAC1F05339200C40F00 /* User.swift */,
+				E2905DAD1F05339200C40F00 /* Picture.swift */,
+				E2905DAE1F05339200C40F00 /* Location.swift */,
 			);
 			name = DTOs;
 			sourceTree = "<group>";
@@ -297,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				E2905DF01F05386000C40F00 /* UseCase */,
-				E2905E021F05434A00C40F00 /* UsersListItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -549,18 +546,17 @@
 				E2905DB51F0533AA00C40F00 /* Date.swift in Sources */,
 				E2905DBA1F0533E200C40F00 /* APIClient.swift in Sources */,
 				E2905DF41F0539F400C40F00 /* UIColor.swift in Sources */,
-				E2905DAF1F05339200C40F00 /* GetUsersDTO.swift in Sources */,
-				E2905DB11F05339200C40F00 /* PictureDTO.swift in Sources */,
+				E2905DAF1F05339200C40F00 /* GetUsers.swift in Sources */,
+				E2905DB11F05339200C40F00 /* Picture.swift in Sources */,
 				E2905DF21F05398D00C40F00 /* RandomUserViewController.swift in Sources */,
-				E2905DB21F05339200C40F00 /* LocationDTO.swift in Sources */,
+				E2905DB21F05339200C40F00 /* Location.swift in Sources */,
 				E2905D821F052A6600C40F00 /* AppDelegate.swift in Sources */,
 				E2905DE81F0534AB00C40F00 /* RandomUserAPIClientError.swift in Sources */,
-				E2905E031F05434A00C40F00 /* UsersListItem.swift in Sources */,
 				E2905DFD1F053F8700C40F00 /* UsersPresenter.swift in Sources */,
 				E2905DFF1F05427E00C40F00 /* UserTableViewCell.swift in Sources */,
 				E2905DFB1F053F4800C40F00 /* UsersViewController.swift in Sources */,
 				E2905DE91F0534AB00C40F00 /* RandomUserAPIClientConfiguration.swift in Sources */,
-				E2905DB01F05339200C40F00 /* UserDTO.swift in Sources */,
+				E2905DB01F05339200C40F00 /* User.swift in Sources */,
 				E2905DBB1F0533E200C40F00 /* APIClientError.swift in Sources */,
 				E2905DF61F053B1A00C40F00 /* ServiceLocator.swift in Sources */,
 				E2905DAA1F05338D00C40F00 /* JSONDecodeable.swift in Sources */,

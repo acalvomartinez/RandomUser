@@ -32,13 +32,13 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsersDTO, RandomUserAPIClientError>?
+    var result: Result<GetUsers, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
     }
     expect(result).toEventuallyNot(beNil())
-    assertContainsExpectedGetCharactersDTO(getUsersDTO: result?.value)
+    assertContainsExpectedGetCharacters(getUsers: result?.value)
   }
   
   func testReturnsNetworkErrorIfThereIsNoConnectionGettingUsers() {
@@ -48,7 +48,7 @@ class RandomUserAPIClientTests: XCTestCase {
       return OHHTTPStubsResponse(error: NSError.networkError())
     }
     
-    var result: Result<GetUsersDTO, RandomUserAPIClientError>?
+    var result: Result<GetUsers, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -67,7 +67,7 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsersDTO, RandomUserAPIClientError>?
+    var result: Result<GetUsers, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -87,7 +87,7 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsersDTO, RandomUserAPIClientError>?
+    var result: Result<GetUsers, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -102,7 +102,7 @@ class RandomUserAPIClientTests: XCTestCase {
       return OHHTTPStubsResponse(error: NSError.crashError())
     }
     
-    var result: Result<GetUsersDTO, RandomUserAPIClientError>?
+    var result: Result<GetUsers, RandomUserAPIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -112,29 +112,29 @@ class RandomUserAPIClientTests: XCTestCase {
 
   // MARK: - Private
   
-  fileprivate func assertContainsExpectedGetCharactersDTO(getUsersDTO: GetUsersDTO?) {
-    expect(getUsersDTO).toNot(beNil())
-    expect(getUsersDTO?.results).to(equal(10))
-    expect(getUsersDTO?.page).to(equal(1))
-    expect(getUsersDTO?.users).toNot(beNil())
-    expect(getUsersDTO?.users?.count).to(equal(10))
+  fileprivate func assertContainsExpectedGetCharacters(getUsers: GetUsers?) {
+    expect(getUsers).toNot(beNil())
+    expect(getUsers?.results).to(equal(10))
+    expect(getUsers?.page).to(equal(1))
+    expect(getUsers?.users).toNot(beNil())
+    expect(getUsers?.users?.count).to(equal(10))
 
-    assertContainsExpectedUserDTO(userDTO: getUsersDTO?.users?[0])
+    assertContainsExpectedUser(user: getUsers?.users?[0])
   }
   
-  fileprivate func assertContainsExpectedUserDTO(userDTO: UserDTO?) {
-    expect(userDTO?.username).to(equal("silvergorilla792"))
-    expect(userDTO?.firstName).to(equal("juho"))
-    expect(userDTO?.lastName).to(equal("luoma"))
-    expect(userDTO?.email).to(equal("juho.luoma@example.com"))
-    expect(userDTO?.phone).to(equal("07-205-701"))
-    expect(userDTO?.gender).to(equal(.male))
-    expect(userDTO?.location.street).to(equal("2566 pirkankatu"))
-    expect(userDTO?.location.city).to(equal("janakkala"))
-    expect(userDTO?.location.state).to(equal("northern ostrobothnia"))
-    expect(userDTO?.picture.large).to(equal("https://randomuser.me/api/portraits/men/30.jpg"))
-    expect(userDTO?.picture.medium).to(equal("https://randomuser.me/api/portraits/med/men/30.jpg"))
-    expect(userDTO?.picture.thumbnail).to(equal("https://randomuser.me/api/portraits/thumb/men/30.jpg"))
-    expect(userDTO?.registeredAt.toString()).to(equal("2014-07-17 00:32:18"))
+  fileprivate func assertContainsExpectedUser(user: User?) {
+    expect(user?.username).to(equal("silvergorilla792"))
+    expect(user?.firstName).to(equal("juho"))
+    expect(user?.lastName).to(equal("luoma"))
+    expect(user?.email).to(equal("juho.luoma@example.com"))
+    expect(user?.phone).to(equal("07-205-701"))
+    expect(user?.gender).to(equal(.male))
+    expect(user?.location.street).to(equal("2566 pirkankatu"))
+    expect(user?.location.city).to(equal("janakkala"))
+    expect(user?.location.state).to(equal("northern ostrobothnia"))
+    expect(user?.picture.large).to(equal("https://randomuser.me/api/portraits/men/30.jpg"))
+    expect(user?.picture.medium).to(equal("https://randomuser.me/api/portraits/med/men/30.jpg"))
+    expect(user?.picture.thumbnail).to(equal("https://randomuser.me/api/portraits/thumb/men/30.jpg"))
+    expect(user?.registeredAt.toString()).to(equal("2014-07-17 00:32:18"))
   }
 }
