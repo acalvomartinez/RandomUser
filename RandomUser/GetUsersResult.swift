@@ -11,7 +11,7 @@ import Foundation
 struct GetUsersResult {
   let page: Int
   let results: Int
-  let users: [User]?
+  let users: [User]
 }
 
 extension GetUsersResult: JSONDecodable {
@@ -26,6 +26,6 @@ extension GetUsersResult: JSONDecodable {
     }
     self.page = page
     self.results = results
-    self.users = JSONDecoder.decode(usersJSONArray)
+    self.users = JSONDecoder.decode(usersJSONArray) ?? []
   }
 }

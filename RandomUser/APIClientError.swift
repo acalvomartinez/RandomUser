@@ -14,7 +14,7 @@ enum APIClientError: Error {
   case couldNotDecodeJSON
   case badStatus(status: Int)
   case internalServerDrama
-  case unknown(Error)
+  case unknown(error: Error)
 }
 
 extension APIClientError: Equatable {
@@ -31,7 +31,7 @@ extension APIClientError {
     case NSURLErrorNetworkConnectionLost:
       return .networkError
     default:
-      return .unknown(error)
+      return .unknown(error: error)
     }
   }
 }

@@ -73,7 +73,7 @@ class RandomUserAPIClientTests: XCTestCase {
       result = response
     }
     expect(result).toEventuallyNot(beNil())
-    expect(result?.value?.users?.count).to(equal(0))
+    expect(result?.value?.users.count).to(equal(0))
   }
   
   func testReturnsErrorIfServerReturn404Error() {
@@ -117,9 +117,9 @@ class RandomUserAPIClientTests: XCTestCase {
     expect(getUsers?.results).to(equal(10))
     expect(getUsers?.page).to(equal(1))
     expect(getUsers?.users).toNot(beNil())
-    expect(getUsers?.users?.count).to(equal(10))
+    expect(getUsers?.users.count).to(equal(10))
 
-    assertContainsExpectedUser(user: getUsers?.users?[0])
+    assertContainsExpectedUser(user: getUsers?.users[0])
   }
   
   fileprivate func assertContainsExpectedUser(user: User?) {
