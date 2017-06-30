@@ -32,7 +32,7 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsersResult, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, APIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -48,12 +48,12 @@ class RandomUserAPIClientTests: XCTestCase {
       return OHHTTPStubsResponse(error: NSError.networkError())
     }
     
-    var result: Result<GetUsersResult, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, APIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
     }
-    expect(result?.error).toEventually(equal(RandomUserAPIClientError.networkError))
+    expect(result?.error).toEventually(equal(APIClientError.networkError))
   }
   
   func testReturnsEmptyListIfResultIsEmpty() {
@@ -67,7 +67,7 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsersResult, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, APIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
@@ -87,12 +87,12 @@ class RandomUserAPIClientTests: XCTestCase {
       )
     }
     
-    var result: Result<GetUsersResult, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, APIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
     }
-    expect(result?.error).toEventually(equal(RandomUserAPIClientError.itemNotFound))
+    expect(result?.error).toEventually(equal(APIClientError.badStatus(status: 404)))
   }
   
   func testReturnsErrorWhenServerCrash() {
@@ -102,12 +102,12 @@ class RandomUserAPIClientTests: XCTestCase {
       return OHHTTPStubsResponse(error: NSError.crashError())
     }
     
-    var result: Result<GetUsersResult, RandomUserAPIClientError>?
+    var result: Result<GetUsersResult, APIClientError>?
     
     randomUserAPIClient.getUsers(results: 10, page: 1) { (response) in
       result = response
     }
-    expect(result?.error).toEventually(equal(RandomUserAPIClientError.internalServerDrama))
+    expect(result?.error).toEventually(equal(APIClientError.internalServerDrama))
   }
 
   // MARK: - Private

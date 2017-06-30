@@ -43,11 +43,11 @@ extension APIClient {
     return APIClient(baseURL: URL.randomUsersURL())
   }
   
-  func getUsers(results: Int, page: Int, completion: @escaping (Result<GetUsersResult, RandomUserAPIClientError>) -> Void) {
+  func getUsers(results: Int, page: Int, completion: @escaping (Result<GetUsersResult, APIClientError>) -> Void) {
     let resource = RandomUserAPIClient.getUsers(results: results, page: page)
     
     object(resource) { (result) in
-      completion(result.mapErrorToRandomUserAPIClientError())
+      completion(result)
     }
   }
 }

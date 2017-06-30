@@ -7,15 +7,14 @@
 //
 
 import Foundation
+import Result
 
 enum APIClientError: Error {
   case networkError
   case couldNotDecodeJSON
   case badStatus(status: Int)
   case internalServerDrama
-  case other(Error)
-  
-  
+  case unknown(Error)
 }
 
 extension APIClientError: Equatable {
@@ -32,7 +31,7 @@ extension APIClientError {
     case NSURLErrorNetworkConnectionLost:
       return .networkError
     default:
-      return .other(error)
+      return .unknown(error)
     }
   }
 }

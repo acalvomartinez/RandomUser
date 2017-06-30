@@ -29,7 +29,6 @@
 		E2905DE01F05342700C40F00 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DDF1F05342700C40F00 /* NSError.swift */; };
 		E2905DE31F05343800C40F00 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DE21F05343800C40F00 /* APIClientTests.swift */; };
 		E2905DE71F0534AB00C40F00 /* RandomUserAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DE41F0534AB00C40F00 /* RandomUserAPIClient.swift */; };
-		E2905DE81F0534AB00C40F00 /* RandomUserAPIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DE51F0534AB00C40F00 /* RandomUserAPIClientError.swift */; };
 		E2905DE91F0534AB00C40F00 /* RandomUserAPIClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DE61F0534AB00C40F00 /* RandomUserAPIClientConfiguration.swift */; };
 		E2905DEB1F0534B900C40F00 /* RandomUserAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DEA1F0534B900C40F00 /* RandomUserAPIClientTests.swift */; };
 		E2905DF21F05398D00C40F00 /* RandomUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DF11F05398D00C40F00 /* RandomUserViewController.swift */; };
@@ -83,7 +82,6 @@
 		E2905DDF1F05342700C40F00 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		E2905DE21F05343800C40F00 /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		E2905DE41F0534AB00C40F00 /* RandomUserAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RandomUserAPIClient.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E2905DE51F0534AB00C40F00 /* RandomUserAPIClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserAPIClientError.swift; sourceTree = "<group>"; };
 		E2905DE61F0534AB00C40F00 /* RandomUserAPIClientConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserAPIClientConfiguration.swift; sourceTree = "<group>"; };
 		E2905DEA1F0534B900C40F00 /* RandomUserAPIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserAPIClientTests.swift; sourceTree = "<group>"; };
 		E2905DF11F05398D00C40F00 /* RandomUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUserViewController.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				E2905DE41F0534AB00C40F00 /* RandomUserAPIClient.swift */,
-				E2905DE51F0534AB00C40F00 /* RandomUserAPIClientError.swift */,
 				E2905DE61F0534AB00C40F00 /* RandomUserAPIClientConfiguration.swift */,
 				E2905DA81F05337B00C40F00 /* DTOs */,
 				E2905DA71F05336F00C40F00 /* Core */,
@@ -551,7 +548,6 @@
 				E2905DF21F05398D00C40F00 /* RandomUserViewController.swift in Sources */,
 				E2905DB21F05339200C40F00 /* Location.swift in Sources */,
 				E2905D821F052A6600C40F00 /* AppDelegate.swift in Sources */,
-				E2905DE81F0534AB00C40F00 /* RandomUserAPIClientError.swift in Sources */,
 				E2905DFD1F053F8700C40F00 /* UsersPresenter.swift in Sources */,
 				E2905DFF1F05427E00C40F00 /* UserTableViewCell.swift in Sources */,
 				E2905DFB1F053F4800C40F00 /* UsersViewController.swift in Sources */,
