@@ -8,11 +8,6 @@
 
 import Foundation
 
-protocol UsersFilterProtocol {
-  func filterExisting(_ users: [User], withUsers: [User]) -> [User]
-  func filterExisting(_ users: [User], withUsernames usernames: [String]) -> [User]
-}
-
 class UsersFilter {
   func filterExisting(_ users: [User], withUsers exitingUsers: [User]) -> [User] {
     return users.filter { !exitingUsers.contains($0) }

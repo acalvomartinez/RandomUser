@@ -38,11 +38,7 @@ extension URL {
   }
 }
 
-protocol RandomUserAPIClientProtocol {
-  func getUsers(results: Int, page: Int, completion: @escaping (Result<GetUsersResult, APIClientError>) -> Void)
-}
-
-extension APIClient: RandomUserAPIClientProtocol {
+extension APIClient {
   static func randomUserAPIClient() -> APIClient {
     return APIClient(baseURL: URL.randomUsersURL())
   }
