@@ -14,14 +14,12 @@ class UsersRepository {
   
   fileprivate let queue = DispatchQueue(label: "me.antoniocalvo.UsersRepository", qos: DispatchQoS.background)
   
-  static let numberOfItemsInPage = 40
-  
   init(randomUserAPIClient: APIClient) {
     self.randomUserAPIClient = randomUserAPIClient
     
   }
   
-  func getUsers(page: Int = 1, results: Int = numberOfItemsInPage, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
+  func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
     randomUserAPIClient.getUsers(results: results, page: page) { result in
       self.queue.async {
         completion(result.flatMap { (getUsersResult) -> Result<[User], APIClientError> in

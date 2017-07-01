@@ -17,8 +17,6 @@ class UsersRichModel {
   
   fileprivate let queue = DispatchQueue(label: "me.antoniocalvo.UsersRichModel", qos: DispatchQoS.background)
   
-  static let numberOfItemsInPage = 40
-  
   init(repository: UsersRepository, usersFilter: UsersFilter, deletedUsernames: DeletedUsernames) {
     self.repository = repository
     self.usersFilter = usersFilter
@@ -26,7 +24,7 @@ class UsersRichModel {
     self.users = []
   }
   
-  func getUsers(page: Int = 1, results: Int = numberOfItemsInPage, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
+  func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
     repository.getUsers(page: page, results: results) { result in
       completion(result.flatMap { (users) -> Result<[User], UsersError> in
         var usersInPage = self.usersFilter.filterExisting(users, withUsers: self.users)
