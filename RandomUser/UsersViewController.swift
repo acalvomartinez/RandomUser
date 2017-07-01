@@ -10,18 +10,31 @@ import Foundation
 import BothamUI
 
 class UsersViewController: RandomUserViewController, BothamTableViewController, UsersUI {
+  
+  @IBOutlet weak var tableView: UITableView!
+  
+  var dataSource: BothamTableViewDataSource<User, UserTableViewCell>!
+  var delegate: UITableViewDelegate!
+  
+  override func viewDidLoad() {
+    self.title = "Random Users"
     
-    @IBOutlet weak var tableView: UITableView!
+    tableView.dataSource = dataSource
+    tableView.delegate = delegate
+    tableView.tableFooterView = UIView()
+    tableView.accessibilityLabel = "UsersTableView"
+    tableView.accessibilityIdentifier = "UsersTableView"
+    pullToRefreshHandler.addTo(scrollView: tableView)
     
-    var dataSource: BothamTableViewDataSource<User, UserTableViewCell>!
-    var delegate: UITableViewDelegate!
+    tableView.separatorColor = UIColor.secondaryTextColor
+    tableView.backgroundColor = UIColor.cellBackgroundColor
     
-    override func viewDidLoad() {
-        tableView.dataSource = dataSource
-        tableView.delegate = delegate
-        tableView.tableFooterView = UIView()
-        tableView.accessibilityLabel = "UsersTableView"
-        tableView.accessibilityIdentifier = "UsersTableView"
-        super.viewDidLoad()
-    }
+    super.viewDidLoad()
+  }
 }
+
+protocol UsersUI: BothamUI, BothamLoadingUI, BothamPullToResfreshUI, EmptyResultUI {
+  func show(items: [User])
+  func showError(_ errorMessage: String)
+}
+

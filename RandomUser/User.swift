@@ -25,7 +25,7 @@ struct User {
     let registeredAt: Date
     
     var displayName: String {
-        return firstName.appendingFormat(" %s", lastName)
+        return "\(firstName) \(lastName)"
     }
 }
 
@@ -67,6 +67,6 @@ extension User: Hashable, Equatable {
 }
 
 func ==(lhs: User, rhs: User) -> Bool {
-  return lhs.username == rhs.username
+  return lhs.username == rhs.username && lhs.picture == lhs.picture
 }
 

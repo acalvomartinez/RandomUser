@@ -12,9 +12,8 @@ import Foundation
 
 class FakeUserMother {
   static func anyUser() -> User {
-    let schema = "http"
     let filename = String.random(ofLength: 6)
-    let imageURLString = schema.appendingFormat("://randomuser.me/%s.jpg", filename)
+    let imageURLString = "https://randomuser.me/images/\(filename).jpg"
     let picture = Picture(large: imageURLString,
                           medium: imageURLString,
                           thumbnail: imageURLString)

@@ -9,10 +9,22 @@
 import Foundation
 import BothamUI
 
-class RandomUserViewController: BothamViewController, BothamLoadingViewController {
-    let loadingView: UIView = {
-        let loadingView = BothamLoadingView()
-        loadingView.color = UIColor.loadingColor
-        return loadingView
-    }()
+class RandomUserViewController: BothamViewController, BothamLoadingViewController, BothamPullToRefresh, EmptyResultViewController {
+  let loadingView: UIView = {
+    let loadingView = BothamLoadingView()
+    loadingView.color = UIColor.loadingColor
+    return loadingView
+  }()
+  
+  let emptyResultView: UIView = {
+    let emptyResultView = EmptyResultView()
+    emptyResultView.color = UIColor.loadingColor
+    return emptyResultView
+  }()
+  
+  var pullToRefreshHandler: BothamPullToRefreshHandler!
+  
+  func showError(_ errorMessage: String) {
+    print(errorMessage)
+  }
 }

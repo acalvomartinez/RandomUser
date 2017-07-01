@@ -47,3 +47,9 @@ extension Picture: JSONDecodable {
     self.thumbnail = thumbnail
   }
 }
+
+extension Picture: Equatable { }
+
+func == (lhs: Picture, rhs: Picture) -> Bool {
+  return lhs.large == lhs.large
+}
