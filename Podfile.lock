@@ -14,22 +14,16 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (6.0.0)
   - OHHTTPStubs/Swift (6.0.0):
     - OHHTTPStubs/Default
-  - RandomKit (5.1.0):
-    - ShiftOperations (~> 1.0.2)
-    - Threadly (~> 1.0)
   - Result (3.2.3)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
-  - ShiftOperations (1.0.2)
   - SwiftyUserDefaults (3.0.0)
-  - Threadly (1.2.0)
 
 DEPENDENCIES:
   - BothamUI (~> 2.0)
   - Nimble
   - OHHTTPStubs/Swift
-  - RandomKit (~> 5.1.0)
   - Result
   - SDWebImage
   - SwiftyUserDefaults
@@ -38,13 +32,10 @@ SPEC CHECKSUMS:
   BothamUI: 5d1073124d4b14e32868a3eeb37509f1e8a73638
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
-  RandomKit: 300a73d10e84efcd5efd450a7c56ceeec7d27dbb
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  ShiftOperations: 702c9aa98d3b20d98dceb71dd8437b562f7ab3ad
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
-  Threadly: b772ed7c1ff4a3f03eb4600bbc5ef83b3be5cb29
 
-PODFILE CHECKSUM: 7059647065a51fc144c8a3d46486c258293430e2
+PODFILE CHECKSUM: 151ea158919cfd6c0f074ff020adcaf01a635f9c
 
 COCOAPODS: 1.2.1

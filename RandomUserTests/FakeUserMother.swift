@@ -7,45 +7,43 @@
 //
 
 import Foundation
-import RandomKit
 
 @testable import RandomUser
 
 class FakeUserMother {
   static func anyUser() -> User {
-    
-    let threadLocal = Xoroshiro.threadLocal
-    
     let schema = "http"
-    let filename = String.random(ofLength: 6, using: &threadLocal.pointee)
+    let filename = String.random(ofLength: 6)
     let imageURLString = schema.appendingFormat("://randomuser.me/%s.jpg", filename)
     let picture = Picture(large: imageURLString,
                           medium: imageURLString,
                           thumbnail: imageURLString)
     
-    let location = Location(street: String.random(ofLength: 6, using: &threadLocal.pointee),
-                            city: String.random(ofLength: 6, using: &threadLocal.pointee),
-                            state: String.random(ofLength: 6, using: &threadLocal.pointee))
+    let location = Location(street: String.random(ofLength: 6),
+                            city: String.random(ofLength: 6),
+                            state: String.random(ofLength: 6))
     
-    let username = String.random(ofLength: 6, using: &threadLocal.pointee)
+    let username = String.random(ofLength: 6)
     
     let email = username.appending("@randomuser.me")
     
-    let digits = Int.random(to: 1000, using: &threadLocal.pointee)
+    let digits = Int.random(within: 100...999)
     
     let phone = "\(digits)-\(digits)-\(digits)"
     
     let user = User(username: username,
-                    firstName: String.random(ofLength: 6, using: &threadLocal.pointee),
-                    lastName:String.random(ofLength: 6, using: &threadLocal.pointee),
+                    firstName: String.random(ofLength: 6),
+                    lastName:String.random(ofLength: 6),
                     email: email,
                     phone: phone,
-                    gender: .female,
+                    gender: Gender.random(),
                     location: location,
                     picture: picture,
-                    registeredAt: Date.random(using: &threadLocal.pointee))
+                    registeredAt: Date())
     return user
     
   }
 }
+
+
 
