@@ -9,16 +9,16 @@
 import Foundation
 
 protocol UsersFilterProtocol {
-  func filter(_ users: [User], filteredUsers: [User]) -> [User]
-  func filter(_ users: [User], filteredUsernames: [String]) -> [User]
+  func filterExisting(_ users: [User], withUsers: [User]) -> [User]
+  func filterExisting(_ users: [User], withUsernames usernames: [String]) -> [User]
 }
 
 class UsersFilter {
-  func filter(_ users: [User], filteredUsers: [User]) -> [User] {
-    return Array(Set(users).subtracting(filteredUsers))
+  func filterExisting(_ users: [User], withUsers exitingUsers: [User]) -> [User] {
+    return users.filter { !exitingUsers.contains($0) }
   }
   
-  func filter(_ users: [User], filteredUsernames: [String]) -> [User] {
-    return users.filter { filteredUsernames.contains($0.username) }
+  func filterExisting(_ users: [User], withUsernames usernames: [String]) -> [User] {
+    return users.filter { !usernames.contains($0.username) }
   }
 }

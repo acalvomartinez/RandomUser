@@ -13,4 +13,6 @@ target 'RandomUserTests' do
   pod 'Result'
   pod 'OHHTTPStubs/Swift'
   pod 'Nimble'
+  
+  pod 'RandomKit', '~> 5.1.0'
 end

@@ -30,8 +30,8 @@ class UsersRepository {
     randomUserAPIClient.getUsers(results: results, page: page) { result in
       self.queue.async {
         completion(result.flatMap { (getUsersResult) -> Result<[User], APIClientError> in
-          var usersInPage = self.usersFilter.filter(getUsersResult.users, filteredUsers: self.users)
-          usersInPage = self.usersFilter.filter(usersInPage, filteredUsernames: self.deletedUsernames.getAll())
+          var usersInPage = self.usersFilter.filterExisting(getUsersResult.users, withUsers: self.users)
+          usersInPage = self.usersFilter.filterExisting(usersInPage, withUsernames: self.deletedUsernames.getAll())
           self.users.append(contentsOf: usersInPage)
           
           return Result(value: usersInPage)
@@ -49,7 +49,7 @@ class UsersRepository {
       }
       
       self.deletedUsernames.add(userToDelete.username)
-      self.users = self.usersFilter.filter(self.users, filteredUsernames: self.deletedUsernames.getAll())
+      self.users = self.usersFilter.filterExisting(self.users, withUsernames: self.deletedUsernames.getAll())
       
       completion(Result(value: userToDelete))
     }

@@ -42,6 +42,8 @@
 		E2905DFB1F053F4800C40F00 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DFA1F053F4800C40F00 /* UsersViewController.swift */; };
 		E2905DFD1F053F8700C40F00 /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DFC1F053F8700C40F00 /* UsersPresenter.swift */; };
 		E2905DFF1F05427E00C40F00 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2905DFE1F05427E00C40F00 /* UserTableViewCell.swift */; };
+		E2EB63EC1F07904100E3537E /* UsersFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB63EB1F07904100E3537E /* UsersFilterTests.swift */; };
+		E2EB63EE1F0792FA00E3537E /* FakeUserMother.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB63ED1F0792FA00E3537E /* FakeUserMother.swift */; };
 		FC35FF95207D57B40ED3DA2E /* Pods_RandomUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4477EFD5E80D97E468DBE7 /* Pods_RandomUser.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		E2905DFA1F053F4800C40F00 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		E2905DFC1F053F8700C40F00 /* UsersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
 		E2905DFE1F05427E00C40F00 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		E2EB63EB1F07904100E3537E /* UsersFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersFilterTests.swift; sourceTree = "<group>"; };
+		E2EB63ED1F0792FA00E3537E /* FakeUserMother.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUserMother.swift; sourceTree = "<group>"; };
 		FB4477EFD5E80D97E468DBE7 /* Pods_RandomUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +144,14 @@
 				0D3AE6724A841A5304C2C085 /* Pods_RandomUserTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E22D0A011F07AD8200F892BE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E2EB63ED1F0792FA00E3537E /* FakeUserMother.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		E233408D1F066A3E0053441C /* DataSources */ = {
@@ -200,6 +212,8 @@
 		E2905D951F052A6600C40F00 /* RandomUserTests */ = {
 			isa = PBXGroup;
 			children = (
+				E22D0A011F07AD8200F892BE /* Utils */,
+				E2EB63EA1F07901B00E3537E /* Business Logic */,
 				E2905DE11F05342C00C40F00 /* APIClient */,
 				E2905DDE1F05342100C40F00 /* Error */,
 				E2905DD11F05340900C40F00 /* JSON */,
@@ -358,6 +372,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		E2EB63EA1F07901B00E3537E /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				E2EB63EB1F07904100E3537E /* UsersFilterTests.swift */,
+			);
+			name = "Business Logic";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -513,7 +535,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D2D908F191739F7C717BF15B /* [CP] Embed Pods Frameworks */ = {
@@ -543,7 +565,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F22BF9D4929A0618095760B1 /* [CP] Embed Pods Frameworks */ = {
@@ -597,6 +619,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2EB63EE1F0792FA00E3537E /* FakeUserMother.swift in Sources */,
+				E2EB63EC1F07904100E3537E /* UsersFilterTests.swift in Sources */,
 				E2905DE31F05343800C40F00 /* APIClientTests.swift in Sources */,
 				E2905DEB1F0534B900C40F00 /* RandomUserAPIClientTests.swift in Sources */,
 				E2905DE01F05342700C40F00 /* NSError.swift in Sources */,
