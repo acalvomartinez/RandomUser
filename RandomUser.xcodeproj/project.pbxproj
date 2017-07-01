@@ -203,13 +203,12 @@
 		E2905D801F052A6600C40F00 /* RandomUser */ = {
 			isa = PBXGroup;
 			children = (
-				E2905DA81F05337B00C40F00 /* Models */,
-				E233408D1F066A3E0053441C /* DataSources */,
 				E2905D811F052A6600C40F00 /* AppDelegate.swift */,
 				E2905DF51F053B1A00C40F00 /* ServiceLocator.swift */,
-				E2905DEC1F05374C00C40F00 /* Users */,
 				E2905DB31F0533A400C40F00 /* Extensions */,
+				E2905DEC1F05374C00C40F00 /* Users */,
 				E2905DA31F052D1C00C40F00 /* View */,
+				E233408D1F066A3E0053441C /* DataSources */,
 				E2905DA21F052D1000C40F00 /* Resources */,
 				E2905DA11F052CEF00C40F00 /* Supporting files */,
 			);
@@ -276,17 +275,6 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		E2905DA81F05337B00C40F00 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E2905DAB1F05339200C40F00 /* GetUsersResult.swift */,
-				E2905DAC1F05339200C40F00 /* User.swift */,
-				E2905DAD1F05339200C40F00 /* Picture.swift */,
-				E2905DAE1F05339200C40F00 /* Location.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		E2905DB31F0533A400C40F00 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,8 +317,8 @@
 		E2905DEC1F05374C00C40F00 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				E2905DF01F05386000C40F00 /* UseCase */,
 				E2905DED1F05377300C40F00 /* Model */,
-				E2905DEE1F05377D00C40F00 /* Presenter */,
 				E2905DEF1F05378500C40F00 /* View */,
 			);
 			name = Users;
@@ -339,7 +327,10 @@
 		E2905DED1F05377300C40F00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2905DF01F05386000C40F00 /* UseCase */,
+				E2905DAB1F05339200C40F00 /* GetUsersResult.swift */,
+				E2905DAC1F05339200C40F00 /* User.swift */,
+				E2905DAD1F05339200C40F00 /* Picture.swift */,
+				E2905DAE1F05339200C40F00 /* Location.swift */,
 				E23340871F0650DD0053441C /* UsersRepository.swift */,
 				E22D0A061F07C2A500F892BE /* UsersRichModel.swift */,
 				E23340921F0686C10053441C /* UsersFilter.swift */,
@@ -359,7 +350,8 @@
 		E2905DEF1F05378500C40F00 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E2905DF91F053EB200C40F00 /* Cells */,
+				E2905DEE1F05377D00C40F00 /* Presenter */,
+				E2905DF91F053EB200C40F00 /* Table View */,
 				E2905DFA1F053F4800C40F00 /* UsersViewController.swift */,
 			);
 			name = View;
@@ -373,12 +365,12 @@
 			name = UseCase;
 			sourceTree = "<group>";
 		};
-		E2905DF91F053EB200C40F00 /* Cells */ = {
+		E2905DF91F053EB200C40F00 /* Table View */ = {
 			isa = PBXGroup;
 			children = (
 				E2905DFE1F05427E00C40F00 /* UserTableViewCell.swift */,
 			);
-			name = Cells;
+			name = "Table View";
 			sourceTree = "<group>";
 		};
 		E2EB63EA1F07901B00E3537E /* Business Logic */ = {
