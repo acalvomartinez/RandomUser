@@ -28,12 +28,23 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
     tableView.separatorColor = UIColor.secondaryTextColor
     tableView.backgroundColor = UIColor.cellBackgroundColor
     
+    configureNavigationBarBackButton()
+    
     super.viewDidLoad()
+  }
+  
+  func openUserDetailScreen(_ userDetailViewController: UIViewController) {
+    navigationController?.push(viewController: userDetailViewController)
+  }
+  
+  fileprivate func configureNavigationBarBackButton() {
+    navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
   }
 }
 
 protocol UsersUI: BothamUI, BothamLoadingUI, EmptyResultUI {
   func show(items: [UserListItemViewModel])
   func showError(_ errorMessage: String)
+  func openUserDetailScreen(_ userDetailViewController: UIViewController)
 }
 

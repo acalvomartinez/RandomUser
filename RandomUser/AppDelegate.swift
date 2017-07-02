@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: Private
     
     fileprivate func installRootViewControllerIntoWindow(_ window: UIWindow?) {
-        let viewController = ServiceLocator().provideRootViewController()
+        let viewController = ServiceLocator.sharedInstance.provideRootViewController()
         window?.rootViewController = viewController
     }
     

@@ -30,7 +30,9 @@ class UsersPresenter: UsersListPresenter {
   }
   
   func itemWasTapped(_ item: UserListItemViewModel) {
-    print("user tapped")
+    let userDetailViewController = ServiceLocator.sharedInstance.provideUserDetailViewController(item.username)
+    
+    self.ui?.openUserDetailScreen(userDetailViewController)
   }
   
   func loadMoreData() {

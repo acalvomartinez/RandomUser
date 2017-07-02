@@ -25,7 +25,7 @@ struct User {
     let registeredAt: Date
     
     var displayName: String {
-        return "\(firstName) \(lastName)"
+        return "\(firstName) \(lastName)".capitalized
     }
 }
 

@@ -70,6 +70,10 @@ extension UIColor {
     return UIColor(rgba: "#F1FAEEFF")
   }
   
+  static var clearTextColor: UIColor {
+    return navigationBarTitleColor
+  }
+  
   static var cellBackgroundColor: UIColor {
     return UIColor(rgba: "#F1FAEEFF")
   }
@@ -82,4 +86,15 @@ extension UIColor {
     return UIColor(rgba: "#457B9DFF")
   }
   
+  static var gradientStartColor: UIColor {
+    return UIColor(rgba: "#2C343C00")
+  }
+  
+  static var gradientEndColor: UIColor {
+    return UIColor(rgba: "#2C343CE5")
+  }
+  
+  static var detailBackgroundColor: UIColor {
+    return cellBackgroundColor
+  }
 }

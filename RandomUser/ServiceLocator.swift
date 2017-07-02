@@ -11,10 +11,20 @@ import UIKit
 import BothamUI
 
 class ServiceLocator {
+  static let sharedInstance = ServiceLocator()
+  
   func provideRootViewController() -> UIViewController {
     let navigationController: UINavigationController = storyBoard.initialViewController()
     navigationController.viewControllers = [provideUserViewController()]
     return navigationController
+  }
+  
+  func provideUserDetailViewController(_ username: String) -> UIViewController {
+    let viewController: UserDetailViewController = storyBoard.instantiateViewController("UserDetailViewController")
+    let getUserDetail = GetUserDetail(richModel: usersRichModel)
+    let presenter = UserDetailPresenter(username: username, ui: viewController, getUserDetail: getUserDetail)
+    viewController.presenter = presenter
+    return viewController
   }
   
   // MARK: - Private
@@ -30,12 +40,17 @@ class ServiceLocator {
   }
   
   fileprivate func provideUsersPresenter(ui: UsersUI) -> UsersPresenter {
-    let usersRepository = UsersRepository(randomUserAPIClient: APIClient.randomUserAPIClient())
-    let usersRichModel = UsersRichModel(repository: usersRepository, usersFilter: UsersFilter(), deletedUsernames: UserDefaultsDeletedUsernames())
     let getUsers = GetUsers(richModel: usersRichModel)
     let deleteUser = DeleteUser(richModel: usersRichModel)
     return UsersPresenter(ui: ui, getUsers: getUsers, deleteUser: deleteUser)
   }
+  
+  fileprivate lazy var usersRichModel: UsersRichModel = {
+    let usersRepository = UsersRepository(randomUserAPIClient: APIClient.randomUserAPIClient())
+    let usersRichModel = UsersRichModel(repository: usersRepository, usersFilter: UsersFilter(), deletedUsernames: UserDefaultsDeletedUsernames())
+    
+    return usersRichModel
+  }()
   
   fileprivate lazy var storyBoard: BothamStoryboard = {
     return BothamStoryboard(name: "RandomUser")
