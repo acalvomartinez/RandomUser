@@ -9,7 +9,7 @@
 import Foundation
 import BothamUI
 
-open class UsersTableViewNavigationDelegate<T: BothamViewDataSource, U: UsersListPresenter>: NSObject, UITableViewDelegate where T.ItemType == U.ItemType {
+public class UsersTableViewNavigationDelegate<T: BothamViewDataSource, U: UsersListPresenter>: NSObject, UITableViewDelegate where T.ItemType == U.ItemType {
   fileprivate var dataSource: T
   fileprivate let presenter: U
   
@@ -20,7 +20,7 @@ open class UsersTableViewNavigationDelegate<T: BothamViewDataSource, U: UsersLis
     self.presenter = presenter
   }
   
-  open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let item = dataSource.item(at: indexPath)
     presenter.itemWasTapped(item)
   }
@@ -37,8 +37,12 @@ open class UsersTableViewNavigationDelegate<T: BothamViewDataSource, U: UsersLis
     itemSelected = nil
   }
   
-  public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if indexPath.row == dataSource.items.count - 1 {
+  public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let currentOffset = scrollView.contentOffset.y
+    let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+    let deltaOffset = maximumOffset - currentOffset
+    
+    if deltaOffset <= 0 {
       presenter.loadMoreData()
     }
   }

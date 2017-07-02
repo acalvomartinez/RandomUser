@@ -16,6 +16,7 @@ class UsersPresenter: NSObject, UsersListPresenter, UISearchResultsUpdating {
   fileprivate let deleteUser: DeleteUser
   
   fileprivate var page: Int = 0
+  fileprivate var isLoadingMore: Bool = false
   
   let numberOfUsersInPage = 20
   
@@ -38,7 +39,9 @@ class UsersPresenter: NSObject, UsersListPresenter, UISearchResultsUpdating {
   }
   
   func loadMoreData() {
-    getNextUsersPage()
+    if (!isLoadingMore) {
+      getNextUsersPage()
+    }
   }
   
   func delete(_ item: UserListItemViewModel) {
@@ -79,6 +82,7 @@ class UsersPresenter: NSObject, UsersListPresenter, UISearchResultsUpdating {
   }
   
   fileprivate func getNextUsersPage() {
+    isLoadingMore = true
     let nextPage = page + 1
     self.getUsersPage(nextPage)
   }
@@ -103,6 +107,8 @@ class UsersPresenter: NSObject, UsersListPresenter, UISearchResultsUpdating {
         } else {
           self.ui?.show(items: users)
         }
+        
+        self.isLoadingMore = false
       }
     }
   }
