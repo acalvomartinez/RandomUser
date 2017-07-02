@@ -23,6 +23,8 @@ class RandomUserViewController: BothamViewController, BothamLoadingViewControlle
   }()
   
   func showError(_ errorMessage: String) {
-    print(errorMessage)
+    let alert = UIAlertController(title: "Alert", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
   }
 }

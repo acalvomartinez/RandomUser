@@ -41,7 +41,7 @@ class UsersPresenter: UsersListPresenter {
     deleteUser.execute(user: item) { (result) in
       DispatchQueue.main.async {
         if let error = result.error {
-          self.ui?.showError(error.description)
+          self.ui?.showError(error.errorDescription)
           return
         }
         guard let users = result.value else {
@@ -65,7 +65,7 @@ class UsersPresenter: UsersListPresenter {
       DispatchQueue.main.async {
         self.ui?.hideLoader()
         if let error = result.error {
-          // show error
+          self.ui?.showError(error.errorDescription)
           return
         }
         

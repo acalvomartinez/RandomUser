@@ -29,3 +29,16 @@ extension ResultProtocol where Error == APIClientError {
         }
     }
 }
+
+extension UsersError: LocalizedError {
+  public var errorDescription: String {
+    switch self {
+    case .networkError:
+      return "Oops! Something happens with the network"
+    case .itemNotFound:
+      return "Oops! Item not found, sorry"
+    case .unknownError(let code):
+      return "Oops! There is an unkown error with code \(code)"
+    }
+  }
+}
