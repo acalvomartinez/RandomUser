@@ -16,7 +16,7 @@ class DeleteUser {
     self.richModel = richModel
   }
   
-  func execute(user: User, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
+  func execute(user: UserListItemViewModel, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
     richModel.delete(user) { (result) in
       completion(result)
     }

@@ -24,21 +24,30 @@ class UsersRichModel {
     self.deletedUsernames = deletedUsernames
   }
   
-  func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
+  func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
     repository.getUsers(page: page, results: results) { result in
-      completion(result.flatMap { (users) -> Result<[User], UsersError> in
+      completion(result.flatMap { (users) -> Result<[UserListItemViewModel], UsersError> in
+        
         var usersInPage = self.usersFilter.filterExisting(users, withUsers: self.users)
         usersInPage = self.usersFilter.filterExisting(usersInPage, withUsernames: self.deletedUsernames.getAll())
         self.users.append(contentsOf: usersInPage)
         
-        return Result(value: self.users)
+        
+        let usersViewModel = self.users.map {
+          UserListItemViewModel(username: $0.username,
+                                displayName: $0.displayName,
+                                email: $0.email,
+                                phone: $0.phone,
+                                photo: $0.picture.pictureURL(size: .medium))
+        }
+        return Result(value: usersViewModel)
       })
     }
   }
   
-  func delete(_ user: User, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
+  func delete(_ user: UserListItemViewModel, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
     self.queue.async {
-      guard let userToDelete = self.users.filter({ $0 == user }).first else {
+      guard let userToDelete = self.users.filter({ $0.username == user.username }).first else {
         completion(Result(error: .itemNotFound))
         return
       }
@@ -46,7 +55,14 @@ class UsersRichModel {
       self.deletedUsernames.add(userToDelete.username)
       self.users = self.usersFilter.filterExisting(self.users, withUsernames: [userToDelete.username])
 
-      completion(Result(value: self.users))
+      let usersViewModel = self.users.map {
+        UserListItemViewModel(username: $0.username,
+                              displayName: $0.displayName,
+                              email: $0.email,
+                              phone: $0.phone,
+                              photo: $0.picture.pictureURL(size: .medium))
+      }
+      completion(Result(value: usersViewModel))
     }
   }
   

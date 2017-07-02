@@ -18,7 +18,7 @@ class GetUsers {
     self.richModel = richModel
   }
   
-  func execute(page: Int = 1, results: Int = numberOfItemsInPage, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
+  func execute(page: Int = 1, results: Int = numberOfItemsInPage, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
     richModel.getUsers(page: page, results: results) { result in
       completion(result)
     }

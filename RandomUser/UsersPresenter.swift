@@ -29,7 +29,7 @@ class UsersPresenter: UsersListPresenter {
     getNextUsersPage()
   }
   
-  func itemWasTapped(_ item: User) {
+  func itemWasTapped(_ item: UserListItemViewModel) {
     print("user tapped")
   }
   
@@ -37,7 +37,7 @@ class UsersPresenter: UsersListPresenter {
     getNextUsersPage()
   }
   
-  func delete(_ item: User) {
+  func delete(_ item: UserListItemViewModel) {
     deleteUser.execute(user: item) { (result) in
       DispatchQueue.main.async {
         if let error = result.error {

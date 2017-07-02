@@ -30,13 +30,12 @@ class UserTableViewCell: UITableViewCell, BothamViewCell {
     self.phoneLabel.textColor = UIColor.secondaryTextColor
   }
   
-  func configure(forItem item: User) {
+  func configure(forItem item: UserListItemViewModel) {
     nameLabel.text = item.displayName
     emailLabel.text = item.email
     phoneLabel.text = item.phone
     
-    let urlPicture = item.picture.pictureURL(size: .large)
-    photoImageView.sd_setImage(with: urlPicture)
+    photoImageView.sd_setImage(with: item.photo)
     
     accessibilityLabel = item.username
   }

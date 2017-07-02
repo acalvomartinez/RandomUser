@@ -22,7 +22,7 @@ class ServiceLocator {
   fileprivate func provideUserViewController() -> UIViewController {
     let usersViewController: UsersViewController = storyBoard.instantiateViewController("UsersViewController")
     let presenter = provideUsersPresenter(ui: usersViewController)
-    let dataSource = UsersTableViewDataSource<User, UserTableViewCell>()
+    let dataSource = UsersTableViewDataSource<UserListItemViewModel, UserTableViewCell>()
     usersViewController.presenter = presenter
     usersViewController.dataSource = dataSource
     usersViewController.delegate = UsersTableViewNavigationDelegate(dataSource: dataSource, presenter: presenter)

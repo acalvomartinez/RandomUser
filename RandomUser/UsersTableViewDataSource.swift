@@ -9,10 +9,6 @@
 import Foundation
 import BothamUI
 
-protocol UsersTableViewDataSourceDelegate {
-  func didRemove(_: User)
-}
-
 open class UsersTableViewDataSource<U, V: BothamViewCell>: NSObject, UITableViewDataSource, BothamViewDataSource where U == V.ItemType {
   open var items = [U]()
   
