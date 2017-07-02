@@ -41,8 +41,9 @@ class ServiceLocator {
   
   fileprivate func provideUsersPresenter(ui: UsersUI) -> UsersPresenter {
     let getUsers = GetUsers(richModel: usersRichModel)
+    let getUsersByQuery = GetUsersByQuery(richModel: usersRichModel)
     let deleteUser = DeleteUser(richModel: usersRichModel)
-    return UsersPresenter(ui: ui, getUsers: getUsers, deleteUser: deleteUser)
+    return UsersPresenter(ui: ui, getUsers: getUsers, getUsersByQuery: getUsersByQuery, deleteUser: deleteUser)
   }
   
   fileprivate lazy var usersRichModel: UsersRichModel = {

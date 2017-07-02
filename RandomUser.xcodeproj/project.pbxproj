@@ -58,6 +58,7 @@
 		E2BA1AC81F091A76006672E8 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA1AC71F091A76006672E8 /* UserListViewModel.swift */; };
 		E2BA1ACA1F0924AA006672E8 /* UserDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA1AC91F0924AA006672E8 /* UserDetailPresenter.swift */; };
 		E2BA1ACC1F092FA1006672E8 /* GetUserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA1ACB1F092FA1006672E8 /* GetUserDetail.swift */; };
+		E2BA1ACE1F099389006672E8 /* GetUsersByQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BA1ACD1F099389006672E8 /* GetUsersByQuery.swift */; };
 		E2EB63EC1F07904100E3537E /* UsersFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB63EB1F07904100E3537E /* UsersFilterTests.swift */; };
 		E2EB63EE1F0792FA00E3537E /* FakeUserMother.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB63ED1F0792FA00E3537E /* FakeUserMother.swift */; };
 		FC35FF95207D57B40ED3DA2E /* Pods_RandomUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4477EFD5E80D97E468DBE7 /* Pods_RandomUser.framework */; };
@@ -133,6 +134,7 @@
 		E2BA1AC71F091A76006672E8 /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		E2BA1AC91F0924AA006672E8 /* UserDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailPresenter.swift; sourceTree = "<group>"; };
 		E2BA1ACB1F092FA1006672E8 /* GetUserDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserDetail.swift; sourceTree = "<group>"; };
+		E2BA1ACD1F099389006672E8 /* GetUsersByQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsersByQuery.swift; sourceTree = "<group>"; };
 		E2EB63EB1F07904100E3537E /* UsersFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersFilterTests.swift; sourceTree = "<group>"; };
 		E2EB63ED1F0792FA00E3537E /* FakeUserMother.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUserMother.swift; sourceTree = "<group>"; };
 		FB4477EFD5E80D97E468DBE7 /* Pods_RandomUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				E22D0A021F07BA1F00F892BE /* GetUsers.swift */,
+				E2BA1ACD1F099389006672E8 /* GetUsersByQuery.swift */,
 				E2BA1AB51F0881BD006672E8 /* DeleteUser.swift */,
 				E23340921F0686C10053441C /* UsersFilter.swift */,
 				E2BA1ACB1F092FA1006672E8 /* GetUserDetail.swift */,
@@ -649,6 +652,7 @@
 			files = (
 				E2905DB71F0533DD00C40F00 /* Resource.swift in Sources */,
 				E2BA1AC61F091A5B006672E8 /* UserViewModel.swift in Sources */,
+				E2BA1ACE1F099389006672E8 /* GetUsersByQuery.swift in Sources */,
 				E23340901F0678E30053441C /* UserDefaultsDeletedUsernames.swift in Sources */,
 				E23340931F0686C10053441C /* UsersFilter.swift in Sources */,
 				E2905DE71F0534AB00C40F00 /* RandomUserAPIClient.swift in Sources */,

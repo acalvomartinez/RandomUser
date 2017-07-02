@@ -9,18 +9,20 @@
 import Foundation
 import BothamUI
 
-class UsersPresenter: UsersListPresenter {
+class UsersPresenter: NSObject, UsersListPresenter, UISearchResultsUpdating {
   fileprivate weak var ui: UsersUI?
   fileprivate let getUsers: GetUsers
+  fileprivate let getUsersByQuery: GetUsersByQuery
   fileprivate let deleteUser: DeleteUser
   
   fileprivate var page: Int = 0
   
-  let numberOfUsersInPage = 5
+  let numberOfUsersInPage = 20
   
-  init(ui: UsersUI, getUsers: GetUsers, deleteUser: DeleteUser) {
+  init(ui: UsersUI, getUsers: GetUsers, getUsersByQuery: GetUsersByQuery ,deleteUser: DeleteUser) {
     self.ui = ui
     self.getUsers = getUsers
+    self.getUsersByQuery = getUsersByQuery
     self.deleteUser = deleteUser
   }
   
@@ -53,6 +55,25 @@ class UsersPresenter: UsersListPresenter {
         if users.isEmpty {
           self.ui?.showEmptyResult()
         }
+      }
+    }
+  }
+  
+  func updateSearchResults(for searchController: UISearchController) {
+    guard let query = searchController.searchBar.text else {
+      return
+    }
+    getUsersByQuery.execute(query: query.lowercased(), searchController.isActive) { (result) in
+      DispatchQueue.main.async {
+        if let error = result.error {
+          self.ui?.showError(error.errorDescription)
+          return
+        }
+        guard let users = result.value else {
+          return
+        }
+        
+        self.ui?.show(items: users)
       }
     }
   }

@@ -16,6 +16,8 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
   var dataSource: UsersTableViewDataSource<UserListItemViewModel, UserTableViewCell>!
   var delegate: UITableViewDelegate!
   
+  let searchController = UISearchController(searchResultsController: nil)
+  
   override func viewDidLoad() {
     self.title = "Random Users"
     
@@ -28,6 +30,8 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
     tableView.separatorColor = UIColor.secondaryTextColor
     tableView.backgroundColor = UIColor.cellBackgroundColor
     
+    configureSearchController()
+    
     configureNavigationBarBackButton()
     
     super.viewDidLoad()
@@ -35,6 +39,13 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
   
   func openUserDetailScreen(_ userDetailViewController: UIViewController) {
     navigationController?.push(viewController: userDetailViewController)
+  }
+  
+  fileprivate func configureSearchController() {
+    searchController.searchResultsUpdater = presenter as? UISearchResultsUpdating
+    searchController.dimsBackgroundDuringPresentation = false
+    definesPresentationContext = true
+    tableView.tableHeaderView = searchController.searchBar
   }
   
   fileprivate func configureNavigationBarBackButton() {
@@ -47,4 +58,3 @@ protocol UsersUI: BothamUI, BothamLoadingUI, EmptyResultUI {
   func showError(_ errorMessage: String)
   func openUserDetailScreen(_ userDetailViewController: UIViewController)
 }
-

@@ -100,11 +100,29 @@ class UsersRichModel {
     }
   }
   
-  func getUsers(withQueryString queryString: String, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
+  func getUsers(withQueryString queryString: String,_ isActive: Bool, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
+    if (!isActive || queryString == "") {
+      let usersViewModel = self.users.map {
+        UserListItemViewModel(username: $0.username,
+                              displayName: $0.displayName,
+                              email: $0.email,
+                              phone: $0.phone,
+                              photo: $0.picture.pictureURL(size: .medium))
+      }
+      completion(Result(value: usersViewModel))
+      return
+    }
+    
     self.queue.async {
       let filteredUsers = self.users.filter({ $0.firstName.contains(queryString) ||  $0.lastName.contains(queryString) ||  $0.email.contains(queryString) })
-      
-      completion(Result(value: filteredUsers))
+      let usersViewModel = filteredUsers.map {
+        UserListItemViewModel(username: $0.username,
+                              displayName: $0.displayName,
+                              email: $0.email,
+                              phone: $0.phone,
+                              photo: $0.picture.pictureURL(size: .medium))
+      }
+      completion(Result(value: usersViewModel))
     }
   }
 }
