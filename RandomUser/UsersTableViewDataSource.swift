@@ -9,28 +9,28 @@
 import Foundation
 import BothamUI
 
-open class UsersTableViewDataSource<U, V: BothamViewCell>: NSObject, UITableViewDataSource, BothamViewDataSource where U == V.ItemType {
-  open var items = [U]()
+public class UsersTableViewDataSource<U, V: BothamViewCell>: NSObject, UITableViewDataSource, BothamViewDataSource where U == V.ItemType {
+  public var items = [U]()
   
-  open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: V.identifier, for: indexPath)
     let item = self.item(at: indexPath)
     (cell as! V).configure(forItem: item)
     return cell
   }
   
-  open func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+  public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
   }
   
-  open func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+  public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if (editingStyle == .delete) {
       items.remove(at: indexPath.item)
       tableView.deleteRows(at: [indexPath], with: .fade)
     }
   }
   
-  open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
   }
 }
