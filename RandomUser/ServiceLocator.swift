@@ -26,7 +26,6 @@ class ServiceLocator {
     usersViewController.presenter = presenter
     usersViewController.dataSource = dataSource
     usersViewController.delegate = UsersTableViewNavigationDelegate(dataSource: dataSource, presenter: presenter)
-    usersViewController.pullToRefreshHandler = BothamPullToRefreshHandler(presenter: presenter)
     return usersViewController
   }
   
@@ -34,7 +33,8 @@ class ServiceLocator {
     let usersRepository = UsersRepository(randomUserAPIClient: APIClient.randomUserAPIClient())
     let usersRichModel = UsersRichModel(repository: usersRepository, usersFilter: UsersFilter(), deletedUsernames: UserDefaultsDeletedUsernames())
     let getUsers = GetUsers(richModel: usersRichModel)
-    return UsersPresenter(ui: ui, getUsers: getUsers)
+    let deleteUser = DeleteUser(richModel: usersRichModel)
+    return UsersPresenter(ui: ui, getUsers: getUsers, deleteUser: deleteUser)
   }
   
   fileprivate lazy var storyBoard: BothamStoryboard = {

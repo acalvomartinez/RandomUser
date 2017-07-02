@@ -29,13 +29,19 @@ open class UsersTableViewDataSource<U, V: BothamViewCell>: NSObject, UITableView
   
   open func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if (editingStyle == .delete) {
-      items.remove(at: indexPath.row)
+      items.remove(at: indexPath.item)
       tableView.deleteRows(at: [indexPath], with: .fade)
     }
   }
   
   open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
+  }
+}
+
+extension BothamViewDataSource {
+  mutating func remove(itemAt index: Int) {
+    items.remove(at: index)
   }
 }
 

@@ -29,4 +29,3 @@ extension ResultProtocol where Error == APIClientError {
         }
     }
 }
-

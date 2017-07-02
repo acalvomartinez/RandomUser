@@ -13,7 +13,8 @@ class UsersRichModel {
   fileprivate let repository: UsersRepository
   fileprivate let usersFilter: UsersFilter
   fileprivate let deletedUsernames: DeletedUsernames
-  fileprivate var users: [User]
+  
+  fileprivate var users = [User]()
   
   fileprivate let queue = DispatchQueue(label: "me.antoniocalvo.UsersRichModel", qos: DispatchQoS.background)
   
@@ -21,7 +22,6 @@ class UsersRichModel {
     self.repository = repository
     self.usersFilter = usersFilter
     self.deletedUsernames = deletedUsernames
-    self.users = []
   }
   
   func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
@@ -31,22 +31,22 @@ class UsersRichModel {
         usersInPage = self.usersFilter.filterExisting(usersInPage, withUsernames: self.deletedUsernames.getAll())
         self.users.append(contentsOf: usersInPage)
         
-        return Result(value: usersInPage)
+        return Result(value: self.users)
       })
     }
   }
   
-  func delete(_ username: String, _ completion: @escaping (Result<User, UsersError>) -> ()) {
+  func delete(_ user: User, _ completion: @escaping (Result<[User], UsersError>) -> ()) {
     self.queue.async {
-      guard let userToDelete = self.users.filter({ $0.username == username }).first else {
+      guard let userToDelete = self.users.filter({ $0 == user }).first else {
         completion(Result(error: .itemNotFound))
         return
       }
       
       self.deletedUsernames.add(userToDelete.username)
-      self.users = self.usersFilter.filterExisting(self.users, withUsernames: self.deletedUsernames.getAll())
-      
-      completion(Result(value: userToDelete))
+      self.users = self.usersFilter.filterExisting(self.users, withUsernames: [userToDelete.username])
+
+      completion(Result(value: self.users))
     }
   }
   

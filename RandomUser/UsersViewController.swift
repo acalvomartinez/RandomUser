@@ -25,8 +25,6 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
     tableView.accessibilityLabel = "UsersTableView"
     tableView.accessibilityIdentifier = "UsersTableView"
     
-    pullToRefreshHandler.addTo(scrollView: tableView)
-    
     tableView.separatorColor = UIColor.secondaryTextColor
     tableView.backgroundColor = UIColor.cellBackgroundColor
     
@@ -34,7 +32,7 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
   }
 }
 
-protocol UsersUI: BothamUI, BothamLoadingUI, BothamPullToResfreshUI, EmptyResultUI {
+protocol UsersUI: BothamUI, BothamLoadingUI, EmptyResultUI {
   func show(items: [User])
   func showError(_ errorMessage: String)
 }

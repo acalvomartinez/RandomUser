@@ -9,18 +9,19 @@
 import Foundation
 import BothamUI
 
-class UsersPresenter: UsersListPresenter, BothamPullToRefreshPresenter {
+class UsersPresenter: UsersListPresenter {
   fileprivate weak var ui: UsersUI?
   fileprivate let getUsers: GetUsers
+  fileprivate let deleteUser: DeleteUser
   
-  fileprivate var users: [User] = []
   fileprivate var page: Int = 0
   
-  let numberOfUsersInPage = 10
+  let numberOfUsersInPage = 5
   
-  init(ui: UsersUI, getUsers: GetUsers) {
+  init(ui: UsersUI, getUsers: GetUsers, deleteUser: DeleteUser) {
     self.ui = ui
     self.getUsers = getUsers
+    self.deleteUser = deleteUser
   }
   
   func viewDidLoad() {
@@ -32,18 +33,26 @@ class UsersPresenter: UsersListPresenter, BothamPullToRefreshPresenter {
     print("user tapped")
   }
   
-  func didStartRefreshing() {
-    self.page = 0
-    self.users = []
-    getNextUsersPage()
-  }
-  
   func loadMoreData() {
     getNextUsersPage()
   }
   
   func delete(_ item: User) {
-    
+    deleteUser.execute(user: item) { (result) in
+      DispatchQueue.main.async {
+        if let error = result.error {
+          self.ui?.showError(error.description)
+          return
+        }
+        guard let users = result.value else {
+          return
+        }
+        
+        if users.isEmpty {
+          self.ui?.showEmptyResult()
+        }
+      }
+    }
   }
   
   fileprivate func getNextUsersPage() {
@@ -55,7 +64,6 @@ class UsersPresenter: UsersListPresenter, BothamPullToRefreshPresenter {
     getUsers.execute(page: page, results: numberOfUsersInPage) { (result) in
       DispatchQueue.main.async {
         self.ui?.hideLoader()
-        self.ui?.stopRefreshing()
         if let error = result.error {
           // show error
           return
@@ -63,18 +71,14 @@ class UsersPresenter: UsersListPresenter, BothamPullToRefreshPresenter {
         
         self.page = nextPage
         
-        guard let usersInPage = result.value else {
+        guard let users = result.value else {
           return
         }
         
-        self.users.append(contentsOf: usersInPage)
-        
-        print("users: \(self.users.count)")
-        
-        if self.users.isEmpty {
+        if users.isEmpty {
           self.ui?.showEmptyResult()
         } else {
-          self.ui?.show(items: self.users)
+          self.ui?.show(items: users)
         }
       }
     }
