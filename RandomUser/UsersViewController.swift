@@ -13,7 +13,7 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
   
   @IBOutlet weak var tableView: UITableView!
   
-  var dataSource: BothamTableViewDataSource<User, UserTableViewCell>!
+  var dataSource: UsersTableViewDataSource<User, UserTableViewCell>!
   var delegate: UITableViewDelegate!
   
   override func viewDidLoad() {
@@ -24,6 +24,7 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
     tableView.tableFooterView = UIView()
     tableView.accessibilityLabel = "UsersTableView"
     tableView.accessibilityIdentifier = "UsersTableView"
+    
     pullToRefreshHandler.addTo(scrollView: tableView)
     
     tableView.separatorColor = UIColor.secondaryTextColor

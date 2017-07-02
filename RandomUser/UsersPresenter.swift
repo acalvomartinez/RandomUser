@@ -9,12 +9,14 @@
 import Foundation
 import BothamUI
 
-class UsersPresenter: BothamPresenter, BothamNavigationPresenter, BothamPullToRefreshPresenter {
+class UsersPresenter: UsersListPresenter, BothamPullToRefreshPresenter {
   fileprivate weak var ui: UsersUI?
   fileprivate let getUsers: GetUsers
   
   fileprivate var users: [User] = []
   fileprivate var page: Int = 0
+  
+  let numberOfUsersInPage = 10
   
   init(ui: UsersUI, getUsers: GetUsers) {
     self.ui = ui
@@ -27,7 +29,7 @@ class UsersPresenter: BothamPresenter, BothamNavigationPresenter, BothamPullToRe
   }
   
   func itemWasTapped(_ item: User) {
-    
+    print("user tapped")
   }
   
   func didStartRefreshing() {
@@ -36,13 +38,21 @@ class UsersPresenter: BothamPresenter, BothamNavigationPresenter, BothamPullToRe
     getNextUsersPage()
   }
   
+  func loadMoreData() {
+    getNextUsersPage()
+  }
+  
+  func delete(_ item: User) {
+    
+  }
+  
   fileprivate func getNextUsersPage() {
     let nextPage = page + 1
     self.getUsersPage(nextPage)
   }
   
   fileprivate func getUsersPage(_ nextPage: Int) {
-    getUsers.execute(page: page, results: 40) { (result) in
+    getUsers.execute(page: page, results: numberOfUsersInPage) { (result) in
       DispatchQueue.main.async {
         self.ui?.hideLoader()
         self.ui?.stopRefreshing()
@@ -58,6 +68,8 @@ class UsersPresenter: BothamPresenter, BothamNavigationPresenter, BothamPullToRe
         }
         
         self.users.append(contentsOf: usersInPage)
+        
+        print("users: \(self.users.count)")
         
         if self.users.isEmpty {
           self.ui?.showEmptyResult()

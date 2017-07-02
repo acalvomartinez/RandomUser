@@ -6,6 +6,7 @@ target 'RandomUser' do
   pod 'SDWebImage'
   pod 'Result'
   pod 'SwiftyUserDefaults'
+  pod '
 end
 
 target 'RandomUserTests' do

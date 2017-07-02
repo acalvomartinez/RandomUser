@@ -98,6 +98,24 @@
                                             <outlet property="photoImageView" destination="SrD-B8-Esq" id="jLO-9V-6Fe"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTableViewFooterCellIdentifier" rowHeight="57" id="LQI-Nt-bx0">
+                                        <rect key="frame" x="0.0" y="104" width="375" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LQI-Nt-bx0" id="2GA-5Z-vVE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="El4-cH-hsW">
+                                                    <rect key="frame" x="169" y="10" width="37" height="37"/>
+                                                    <color key="color" red="0.92156862750000001" green="0.21960784310000001" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="El4-cH-hsW" firstAttribute="centerX" secondItem="2GA-5Z-vVE" secondAttribute="centerX" id="2zs-Ej-UUV"/>
+                                                <constraint firstItem="El4-cH-hsW" firstAttribute="centerY" secondItem="2GA-5Z-vVE" secondAttribute="centerY" id="PQI-9w-xFA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
