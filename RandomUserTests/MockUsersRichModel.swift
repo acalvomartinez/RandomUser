@@ -13,7 +13,7 @@ import Result
 
 class MockUsersRichModel: UsersRichModel {
   var users = [User]()
-
+  
   override func getDetail(withUsername username: String, _ completion: @escaping (Result<UserViewModel, UsersError>) -> ()) {
     let userByName = users.filter { $0.username == username }.first!
     
@@ -29,5 +29,16 @@ class MockUsersRichModel: UsersRichModel {
                                       photo: userByName.picture.pictureURL(size: .large))
     
     completion(Result(value:userViewModel))
+  }
+  
+  override func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
+    let usersViewModel = users.map {
+      UserListItemViewModel(username: $0.username,
+                            displayName: $0.displayName,
+                            email: $0.email,
+                            phone: $0.phone,
+                            photo: $0.picture.pictureURL(size: .medium))
+    }
+    completion(Result(value:usersViewModel))
   }
 }
