@@ -13,7 +13,6 @@
 		E20B23ED1F0A2670005A33D8 /* AcceptanceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23EC1F0A2670005A33D8 /* AcceptanceTestCase.swift */; };
 		E20B23EF1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23EE1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift */; };
 		E20B23F11F0A4DC2005A33D8 /* MockUsersRichModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23F01F0A4DC2005A33D8 /* MockUsersRichModel.swift */; };
-		E20B23F41F0A51A3005A33D8 /* MockUsersAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23F31F0A51A3005A33D8 /* MockUsersAPIClient.swift */; };
 		E20B23F61F0A5E38005A33D8 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23F51F0A5E38005A33D8 /* UsersViewController.swift */; };
 		E22D0A031F07BA1F00F892BE /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22D0A021F07BA1F00F892BE /* GetUsers.swift */; };
 		E22D0A051F07BEF800F892BE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22D0A041F07BEF800F892BE /* Random.swift */; };
@@ -92,7 +91,6 @@
 		E20B23EC1F0A2670005A33D8 /* AcceptanceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptanceTestCase.swift; sourceTree = "<group>"; };
 		E20B23EE1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewControllerTest.swift; sourceTree = "<group>"; };
 		E20B23F01F0A4DC2005A33D8 /* MockUsersRichModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUsersRichModel.swift; sourceTree = "<group>"; };
-		E20B23F31F0A51A3005A33D8 /* MockUsersAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUsersAPIClient.swift; sourceTree = "<group>"; };
 		E20B23F51F0A5E38005A33D8 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		E22D0A021F07BA1F00F892BE /* GetUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
 		E22D0A041F07BEF800F892BE /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		E20B23F21F0A4DC9005A33D8 /* Test Doubles */ = {
 			isa = PBXGroup;
 			children = (
-				E20B23F31F0A51A3005A33D8 /* MockUsersAPIClient.swift */,
 				E20B23F01F0A4DC2005A33D8 /* MockUsersRichModel.swift */,
 			);
 			name = "Test Doubles";
@@ -731,7 +728,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E20B23F41F0A51A3005A33D8 /* MockUsersAPIClient.swift in Sources */,
 				E20B23F11F0A4DC2005A33D8 /* MockUsersRichModel.swift in Sources */,
 				E20B23F61F0A5E38005A33D8 /* UsersViewController.swift in Sources */,
 				E2EB63EE1F0792FA00E3537E /* FakeUserMother.swift in Sources */,
