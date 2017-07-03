@@ -41,6 +41,34 @@ class FakeUserMother {
                     registeredAt: Date())
     return user
   }
+  
+  static func aUserWithIndex(_ index: Int) -> User {
+    let imageURLString = "https://randomuser.me/images/\(index).jpg"
+    let picture = Picture(large: imageURLString,
+                          medium: imageURLString,
+                          thumbnail: imageURLString)
+    
+    let location = Location(street: "Street \(index)",
+                            city: "City \(index)",
+                            state: "State \(index)")
+    
+    let username = "username\(index)"
+    
+    let email = username.appending("@randomuser.me")
+    
+    let phone = "\(index)-\(index)-\(index)"
+    
+    let user = User(username: username,
+                    firstName: "FirstName \(index)",
+                    lastName:"LastName \(index)",
+                    email: email,
+                    phone: phone,
+                    gender: Gender.random(),
+                    location: location,
+                    picture: picture,
+                    registeredAt: Date())
+    return user
+  }
 }
 
 
