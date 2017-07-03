@@ -15,7 +15,7 @@ class ServiceLocator {
   
   func provideRootViewController() -> UIViewController {
     let navigationController: UINavigationController = storyBoard.initialViewController()
-    navigationController.viewControllers = [provideUserViewController()]
+    navigationController.viewControllers = [provideUsersViewController()]
     return navigationController
   }
   
@@ -27,9 +27,7 @@ class ServiceLocator {
     return viewController
   }
   
-  // MARK: - Private
-  
-  fileprivate func provideUserViewController() -> UIViewController {
+  func provideUsersViewController() -> UIViewController {
     let usersViewController: UsersViewController = storyBoard.instantiateViewController("UsersViewController")
     let presenter = provideUsersPresenter(ui: usersViewController)
     let dataSource = UsersTableViewDataSource<UserListItemViewModel, UserTableViewCell>()
@@ -39,6 +37,8 @@ class ServiceLocator {
     return usersViewController
   }
   
+  // MARK: - Private
+
   fileprivate func provideUsersPresenter(ui: UsersUI) -> UsersPresenter {
     let getUsers = GetUsers(richModel: usersRichModel)
     let getUsersByQuery = GetUsersByQuery(richModel: usersRichModel)
