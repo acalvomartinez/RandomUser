@@ -33,7 +33,7 @@ class UsersPresenter: NSObject, UsersListPresenter, UISearchResultsUpdating {
   }
   
   func itemWasTapped(_ item: UserListItemViewModel) {
-    let userDetailViewController = ServiceLocator.sharedInstance.provideUserDetailViewController(item.username)
+    let userDetailViewController = ServiceLocator().provideUserDetailViewController(item.username)
     
     self.ui?.openUserDetailScreen(userDetailViewController)
   }

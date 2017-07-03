@@ -10,6 +10,8 @@ import Foundation
 import Result
 
 class UsersRichModel {
+  static let sharedInstance = UsersRichModel()
+  
   fileprivate let repository: UsersRepository
   fileprivate let usersFilter: UsersFilter
   fileprivate let deletedUsernames: DeletedUsernames

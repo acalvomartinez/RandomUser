@@ -11,7 +11,7 @@ import UIKit
 import BothamUI
 
 class ServiceLocator {
-  static let sharedInstance = ServiceLocator()
+  var usersRichModel: UsersRichModel = UsersRichModel.sharedInstance
   
   func provideRootViewController() -> UIViewController {
     let navigationController: UINavigationController = storyBoard.initialViewController()
@@ -45,8 +45,6 @@ class ServiceLocator {
     let deleteUser = DeleteUser(richModel: usersRichModel)
     return UsersPresenter(ui: ui, getUsers: getUsers, getUsersByQuery: getUsersByQuery, deleteUser: deleteUser)
   }
-  
-  fileprivate lazy var usersRichModel: UsersRichModel = UsersRichModel()
   
   fileprivate lazy var storyBoard: BothamStoryboard = {
     return BothamStoryboard(name: "RandomUser")
