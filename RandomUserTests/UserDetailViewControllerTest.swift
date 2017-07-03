@@ -14,7 +14,7 @@ import UIKit
 
 class UserDetailViewControllerTest: AcceptanceTestCase {
   
-  var usersRichModel = MockUsersRichModel()
+  var usersRichModel = MockUsersRichModel.mockSharedInstance
   
   func testShowsUsernameAsTitle() {
     let user = givenAUser()
@@ -45,13 +45,16 @@ class UserDetailViewControllerTest: AcceptanceTestCase {
   
   
   fileprivate func givenAUser() -> User {
-    let fakeUser = FakeUserMother.anyUser()
+    let fakeUser = FakeUserMother.aUserWithIndex(1)
     usersRichModel.users = [fakeUser]
     return fakeUser
   }
   
   fileprivate func openUserDetailViewController(_ username: String) {
-    let userDetailViewController = ServiceLocator().provideUserDetailViewController(username) as! UserDetailViewController
+    let serviceLocator = ServiceLocator()
+    serviceLocator.usersRichModel = usersRichModel
+        
+    let userDetailViewController = serviceLocator.provideUserDetailViewController(username) as! UserDetailViewController
     userDetailViewController.presenter = UserDetailPresenter(username: username,
                                                              ui: userDetailViewController,
                                                              getUserDetail: GetUserDetail(richModel: usersRichModel))

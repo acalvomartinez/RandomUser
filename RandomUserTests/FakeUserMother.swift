@@ -58,15 +58,22 @@ class FakeUserMother {
     
     let phone = "\(index)-\(index)-\(index)"
     
+    var gender: Gender
+    if (index % 2 == 0) {
+      gender = .male
+    } else {
+      gender = .female
+    }
+    
     let user = User(username: username,
                     firstName: "FirstName \(index)",
                     lastName:"LastName \(index)",
                     email: email,
                     phone: phone,
-                    gender: Gender.random(),
+                    gender: gender,
                     location: location,
                     picture: picture,
-                    registeredAt: Date())
+                    registeredAt: Date(timeIntervalSince1970: TimeInterval(index)))
     return user
   }
 }

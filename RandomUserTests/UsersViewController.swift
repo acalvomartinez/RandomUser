@@ -14,7 +14,7 @@ import UIKit
 
 class UsersViewControllerTest: AcceptanceTestCase {
   
-  var usersRichModel: MockUsersRichModel = MockUsersRichModel()
+  var usersRichModel = MockUsersRichModel.mockSharedInstance
   
   func testShowsEmptyCaseIfThereAreNoUsers() {
     givenThereAreNoUsers()
@@ -95,7 +95,7 @@ class UsersViewControllerTest: AcceptanceTestCase {
     _ = givenThereAreSomeUsers(0)
   }
   
-  fileprivate func givenThereAreSomeUsers(_ numberOfUsers: Int = 5) -> [User] {
+  fileprivate func givenThereAreSomeUsers(_ numberOfUsers: Int = 10) -> [User] {
     var users = [User]()
     for i in 0..<numberOfUsers {
       let user = FakeUserMother.aUserWithIndex(i)
@@ -112,7 +112,10 @@ class UsersViewControllerTest: AcceptanceTestCase {
   }
   
   fileprivate func openUsersViewController() {
-    let usersViewController = ServiceLocator().provideUsersViewController() as! UsersViewController
+    let serviceLocator = ServiceLocator()
+    serviceLocator.usersRichModel = usersRichModel
+    
+    let usersViewController = serviceLocator.provideUsersViewController() as! UsersViewController
     
     usersViewController.presenter = UsersPresenter(ui: usersViewController,
                                                    getUsers: GetUsers(richModel: usersRichModel),
