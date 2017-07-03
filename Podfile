@@ -11,8 +11,8 @@ end
 def testing_pods
   pod 'Result'
   pod 'OHHTTPStubs/Swift'
-  pod 'Nimble'
-  pod 'KIF'
+  pod 'Nimble', '~> 5.0'
+  pod 'KIF', '~> 3.0', :configurations => ['Debug']
 end
 
 target 'RandomUser' do
