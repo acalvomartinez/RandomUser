@@ -128,7 +128,7 @@ class RandomUserAPIClientTests: XCTestCase {
     expect(user?.lastName).to(equal("luoma"))
     expect(user?.email).to(equal("juho.luoma@example.com"))
     expect(user?.phone).to(equal("07-205-701"))
-    expect(user?.gender).to(equal(.male))
+    expect(user?.gender.rawValue).to(equal(Gender.male.rawValue))
     expect(user?.location.street).to(equal("2566 pirkankatu"))
     expect(user?.location.city).to(equal("janakkala"))
     expect(user?.location.state).to(equal("northern ostrobothnia"))
