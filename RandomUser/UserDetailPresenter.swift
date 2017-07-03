@@ -21,6 +21,7 @@ class UserDetailPresenter: BothamPresenter {
   }
   
   func viewDidLoad() {
+    ui?.title = username
     ui?.showLoader()
     getUserDetail.execute(username: username) { (result) in
       DispatchQueue.main.async {
@@ -33,8 +34,6 @@ class UserDetailPresenter: BothamPresenter {
         guard let user = result.value else {
           return
         }
-        
-        self.ui?.title = user.username
         self.ui?.show(user: user)
       }
     }
