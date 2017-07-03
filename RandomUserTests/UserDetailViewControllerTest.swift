@@ -14,15 +14,7 @@ import UIKit
 
 class UserDetailViewControllerTest: AcceptanceTestCase {
   
-  var usersRichModel: MockUsersRichModel?
-  
-  override func setUp() {
-    super.setUp()
-    let mockUsersAPIClient = MockUsersAPIClient()
-    let fakeRepository = UsersRepository(randomUserAPIClient: mockUsersAPIClient)
-    
-    usersRichModel = MockUsersRichModel(repository: fakeRepository)
-  }
+  var usersRichModel = MockUsersRichModel()
   
   func testShowsUsernameAsTitle() {
     let user = givenAUser()
@@ -54,7 +46,7 @@ class UserDetailViewControllerTest: AcceptanceTestCase {
   
   fileprivate func givenAUser() -> User {
     let fakeUser = FakeUserMother.anyUser()
-    usersRichModel!.users = [fakeUser]
+    usersRichModel.users = [fakeUser]
     return fakeUser
   }
   
@@ -62,7 +54,7 @@ class UserDetailViewControllerTest: AcceptanceTestCase {
     let userDetailViewController = ServiceLocator().provideUserDetailViewController(username) as! UserDetailViewController
     userDetailViewController.presenter = UserDetailPresenter(username: username,
                                                              ui: userDetailViewController,
-                                                             getUserDetail: GetUserDetail(richModel: usersRichModel!))
+                                                             getUserDetail: GetUserDetail(richModel: usersRichModel))
     
     let rootViewController = UINavigationController()
     rootViewController.viewControllers = [userDetailViewController]

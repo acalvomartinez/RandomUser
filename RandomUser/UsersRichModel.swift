@@ -11,31 +11,24 @@ import Result
 
 class UsersRichModel {
   fileprivate let repository: UsersRepository
-  fileprivate let usersFilter: UsersFilter?
-  fileprivate let deletedUsernames: DeletedUsernames?
+  fileprivate let usersFilter: UsersFilter
+  fileprivate let deletedUsernames: DeletedUsernames
   
   fileprivate var users = [User]()
   
   fileprivate let queue = DispatchQueue(label: "me.antoniocalvo.UsersRichModel", qos: DispatchQoS.background)
   
-  init(repository: UsersRepository, usersFilter: UsersFilter? = nil, deletedUsernames: DeletedUsernames? = nil) {
-    self.repository = repository
-    self.usersFilter = usersFilter
-    self.deletedUsernames = deletedUsernames
+  init() {
+    self.repository = UsersRepository(randomUserAPIClient: APIClient.randomUserAPIClient())
+    self.usersFilter = UsersFilter()
+    self.deletedUsernames = UserDefaultsDeletedUsernames()
   }
   
   func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
     repository.getUsers(page: page, results: results) { result in
       completion(result.flatMap { (users) -> Result<[UserListItemViewModel], UsersError> in
-        
-        guard
-          let deletedUsernames = self.deletedUsernames,
-          let usersFilter = self.usersFilter else {
-            return Result(error: UsersError.unknownError(code: 1000))
-        }
-        
-        var usersInPage = usersFilter.filterExisting(users, withUsers: self.users)
-        usersInPage = usersFilter.filterExisting(usersInPage, withUsernames: deletedUsernames.getAll())
+        var usersInPage = self.usersFilter.filterExisting(users, withUsers: self.users)
+        usersInPage = self.usersFilter.filterExisting(usersInPage, withUsernames: self.deletedUsernames.getAll())
         self.users.append(contentsOf: usersInPage)
         
         
@@ -58,14 +51,8 @@ class UsersRichModel {
         return
       }
       
-      guard
-        let deletedUsernames = self.deletedUsernames,
-        let usersFilter = self.usersFilter else {
-        return
-      }
-      
-      deletedUsernames.add(userToDelete.username)
-      self.users = usersFilter.filterExisting(self.users, withUsernames: [userToDelete.username])
+      self.deletedUsernames.add(userToDelete.username)
+      self.users = self.usersFilter.filterExisting(self.users, withUsernames: [userToDelete.username])
 
       let usersViewModel = self.users.map {
         UserListItemViewModel(username: $0.username,

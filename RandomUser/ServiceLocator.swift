@@ -46,12 +46,7 @@ class ServiceLocator {
     return UsersPresenter(ui: ui, getUsers: getUsers, getUsersByQuery: getUsersByQuery, deleteUser: deleteUser)
   }
   
-  fileprivate lazy var usersRichModel: UsersRichModel = {
-    let usersRepository = UsersRepository(randomUserAPIClient: APIClient.randomUserAPIClient())
-    let usersRichModel = UsersRichModel(repository: usersRepository, usersFilter: UsersFilter(), deletedUsernames: UserDefaultsDeletedUsernames())
-    
-    return usersRichModel
-  }()
+  fileprivate lazy var usersRichModel: UsersRichModel = UsersRichModel()
   
   fileprivate lazy var storyBoard: BothamStoryboard = {
     return BothamStoryboard(name: "RandomUser")

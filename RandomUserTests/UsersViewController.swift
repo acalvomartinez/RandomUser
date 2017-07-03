@@ -14,15 +14,7 @@ import UIKit
 
 class UsersViewControllerTest: AcceptanceTestCase {
   
-  var usersRichModel: MockUsersRichModel?
-  
-  override func setUp() {
-    super.setUp()
-    let mockUsersAPIClient = MockUsersAPIClient()
-    let fakeRepository = UsersRepository(randomUserAPIClient: mockUsersAPIClient)
-    
-    usersRichModel = MockUsersRichModel(repository: fakeRepository)
-  }
+  var usersRichModel: MockUsersRichModel = MockUsersRichModel()
   
   func testShowsEmptyCaseIfThereAreNoUsers() {
     givenThereAreNoUsers()
@@ -109,13 +101,13 @@ class UsersViewControllerTest: AcceptanceTestCase {
       let user = FakeUserMother.aUserWithIndex(i)
       users.append(user)
     }
-    usersRichModel!.users = users
+    usersRichModel.users = users
     return users
   }
 
   fileprivate func givenAUser() -> User {
     let fakeUser = FakeUserMother.anyUser()
-    usersRichModel!.users = [fakeUser]
+    usersRichModel.users = [fakeUser]
     return fakeUser
   }
   
@@ -123,9 +115,9 @@ class UsersViewControllerTest: AcceptanceTestCase {
     let usersViewController = ServiceLocator().provideUsersViewController() as! UsersViewController
     
     usersViewController.presenter = UsersPresenter(ui: usersViewController,
-                                                   getUsers: GetUsers(richModel: usersRichModel!),
-                                                   getUsersByQuery: GetUsersByQuery(richModel: usersRichModel!),
-                                                   deleteUser: DeleteUser(richModel: usersRichModel!))
+                                                   getUsers: GetUsers(richModel: usersRichModel),
+                                                   getUsersByQuery: GetUsersByQuery(richModel: usersRichModel),
+                                                   deleteUser: DeleteUser(richModel: usersRichModel))
     
     let rootViewController = UINavigationController()
     rootViewController.viewControllers = [usersViewController]
