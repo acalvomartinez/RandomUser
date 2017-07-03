@@ -9,6 +9,10 @@
 import Foundation
 import Result
 
+protocol RandomAPIClientProtocol {
+  func getUsers(results: Int, page: Int, completion: @escaping (Result<GetUsersResult, APIClientError>) -> Void)
+}
+
 public enum RandomUserAPIClient {
   case getUsers(results: Int, page: Int)
 }
@@ -38,7 +42,7 @@ extension URL {
   }
 }
 
-extension APIClient {
+extension APIClient: RandomAPIClientProtocol {
   static func randomUserAPIClient() -> APIClient {
     return APIClient(baseURL: URL.randomUsersURL())
   }

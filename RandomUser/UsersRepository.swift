@@ -10,9 +10,9 @@ import Foundation
 import Result
 
 class UsersRepository {
-  fileprivate let randomUserAPIClient: APIClient
+  fileprivate let randomUserAPIClient: RandomAPIClientProtocol
   
-  init(randomUserAPIClient: APIClient) {
+  init(randomUserAPIClient: RandomAPIClientProtocol) {
     self.randomUserAPIClient = randomUserAPIClient
   }
   
