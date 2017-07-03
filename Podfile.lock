@@ -1,5 +1,8 @@
 PODS:
   - BothamUI (2.0.0)
+  - KIF (3.5.2):
+    - KIF/Core (= 3.5.2)
+  - KIF/Core (3.5.2)
   - Nimble (7.0.1)
   - OHHTTPStubs/Core (6.0.0)
   - OHHTTPStubs/Default (6.0.0):
@@ -22,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - BothamUI (~> 2.0)
+  - KIF
   - Nimble
   - OHHTTPStubs/Swift
   - Result
@@ -30,12 +34,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BothamUI: 5d1073124d4b14e32868a3eeb37509f1e8a73638
+  KIF: f2a6025bb3f11692df675054a134d43a9ec2d7db
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: 151ea158919cfd6c0f074ff020adcaf01a635f9c
+PODFILE CHECKSUM: b6b12ba82a409222d88d8bc908fa189b20e38bc4
 
 COCOAPODS: 1.2.1

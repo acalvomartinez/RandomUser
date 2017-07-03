@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0ADDA8426F5F5A3494FB5347 /* Pods_RandomUserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3AE6724A841A5304C2C085 /* Pods_RandomUserTests.framework */; };
+		E20B23E91F0A2637005A33D8 /* KIFTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23E81F0A2637005A33D8 /* KIFTestCase.swift */; };
+		E20B23EB1F0A2653005A33D8 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23EA1F0A2653005A33D8 /* XCTestCase.swift */; };
+		E20B23ED1F0A2670005A33D8 /* AcceptanceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23EC1F0A2670005A33D8 /* AcceptanceTestCase.swift */; };
+		E20B23EF1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23EE1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift */; };
+		E20B23F11F0A4DC2005A33D8 /* MockUsersRichModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23F01F0A4DC2005A33D8 /* MockUsersRichModel.swift */; };
+		E20B23F41F0A51A3005A33D8 /* MockUsersAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B23F31F0A51A3005A33D8 /* MockUsersAPIClient.swift */; };
 		E22D0A031F07BA1F00F892BE /* GetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22D0A021F07BA1F00F892BE /* GetUsers.swift */; };
 		E22D0A051F07BEF800F892BE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22D0A041F07BEF800F892BE /* Random.swift */; };
 		E22D0A071F07C2A500F892BE /* UsersRichModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22D0A061F07C2A500F892BE /* UsersRichModel.swift */; };
@@ -80,6 +86,12 @@
 		4DD7A33A4A77DC120821C7C4 /* Pods-RandomUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUser/Pods-RandomUser.debug.xcconfig"; sourceTree = "<group>"; };
 		B1DB2A769ABA908D02EDFDA0 /* Pods-RandomUserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUserTests/Pods-RandomUserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3CEFD83EBBDB0B571853016 /* Pods-RandomUserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RandomUserTests/Pods-RandomUserTests.release.xcconfig"; sourceTree = "<group>"; };
+		E20B23E81F0A2637005A33D8 /* KIFTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KIFTestCase.swift; sourceTree = "<group>"; };
+		E20B23EA1F0A2653005A33D8 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		E20B23EC1F0A2670005A33D8 /* AcceptanceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptanceTestCase.swift; sourceTree = "<group>"; };
+		E20B23EE1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewControllerTest.swift; sourceTree = "<group>"; };
+		E20B23F01F0A4DC2005A33D8 /* MockUsersRichModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUsersRichModel.swift; sourceTree = "<group>"; };
+		E20B23F31F0A51A3005A33D8 /* MockUsersAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUsersAPIClient.swift; sourceTree = "<group>"; };
 		E22D0A021F07BA1F00F892BE /* GetUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsers.swift; sourceTree = "<group>"; };
 		E22D0A041F07BEF800F892BE /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		E22D0A061F07C2A500F892BE /* UsersRichModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersRichModel.swift; sourceTree = "<group>"; };
@@ -180,11 +192,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E20B23E61F0A25FC005A33D8 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				E20B23EE1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		E20B23F21F0A4DC9005A33D8 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				E20B23F31F0A51A3005A33D8 /* MockUsersAPIClient.swift */,
+				E20B23F01F0A4DC2005A33D8 /* MockUsersRichModel.swift */,
+			);
+			name = "Test Doubles";
+			sourceTree = "<group>";
+		};
 		E22D0A011F07AD8200F892BE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				E2EB63ED1F0792FA00E3537E /* FakeUserMother.swift */,
 				E22D0A041F07BEF800F892BE /* Random.swift */,
+				E20B23E81F0A2637005A33D8 /* KIFTestCase.swift */,
+				E20B23EA1F0A2653005A33D8 /* XCTestCase.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -257,11 +288,14 @@
 		E2905D951F052A6600C40F00 /* RandomUserTests */ = {
 			isa = PBXGroup;
 			children = (
+				E20B23F21F0A4DC9005A33D8 /* Test Doubles */,
+				E20B23E61F0A25FC005A33D8 /* Users */,
 				E22D0A011F07AD8200F892BE /* Utils */,
 				E2EB63EA1F07901B00E3537E /* Business Logic */,
 				E2905DE11F05342C00C40F00 /* APIClient */,
 				E2905DDE1F05342100C40F00 /* Error */,
 				E2905DD11F05340900C40F00 /* JSON */,
+				E20B23EC1F0A2670005A33D8 /* AcceptanceTestCase.swift */,
 				E2905D981F052A6600C40F00 /* Info.plist */,
 			);
 			path = RandomUserTests;
@@ -694,11 +728,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20B23F41F0A51A3005A33D8 /* MockUsersAPIClient.swift in Sources */,
+				E20B23F11F0A4DC2005A33D8 /* MockUsersRichModel.swift in Sources */,
 				E2EB63EE1F0792FA00E3537E /* FakeUserMother.swift in Sources */,
+				E20B23ED1F0A2670005A33D8 /* AcceptanceTestCase.swift in Sources */,
 				E2EB63EC1F07904100E3537E /* UsersFilterTests.swift in Sources */,
+				E20B23EB1F0A2653005A33D8 /* XCTestCase.swift in Sources */,
 				E22D0A051F07BEF800F892BE /* Random.swift in Sources */,
 				E2905DE31F05343800C40F00 /* APIClientTests.swift in Sources */,
+				E20B23EF1F0A4ABA005A33D8 /* UserDetailViewControllerTest.swift in Sources */,
 				E2905DEB1F0534B900C40F00 /* RandomUserAPIClientTests.swift in Sources */,
+				E20B23E91F0A2637005A33D8 /* KIFTestCase.swift in Sources */,
 				E2905DE01F05342700C40F00 /* NSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

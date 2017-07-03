@@ -40,7 +40,6 @@ class FakeUserMother {
                     picture: picture,
                     registeredAt: Date())
     return user
-    
   }
 }
 
