@@ -15,6 +15,7 @@ public class EmptyResultView: BothamCustomView {
   @IBOutlet public weak var emptyLabel: UILabel! {
     didSet {
       emptyLabel.text = "No results found...\nSorry but this aren't the droids you're looking for."
+      emptyLabel.accessibilityLabel = "No results found"
     }
   }
   
