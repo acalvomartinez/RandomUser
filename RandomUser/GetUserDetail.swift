@@ -11,9 +11,9 @@ import Result
 
 class GetUserDetail {
   
-  fileprivate let richModel: UsersRichModel
+  fileprivate let richModel: UsersRichModelProtocol
   
-  init(richModel: UsersRichModel) {
+  init(richModel: UsersRichModelProtocol) {
     self.richModel = richModel
   }
   

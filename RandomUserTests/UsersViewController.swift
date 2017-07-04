@@ -14,7 +14,7 @@ import UIKit
 
 class UsersViewControllerTest: AcceptanceTestCase {
   
-  var usersRichModel = MockUsersRichModel.mockSharedInstance
+  var usersRichModel = MockUsersRichModel()
   
   func testShowsEmptyCaseIfThereAreNoUsers() {
     givenThereAreNoUsers()

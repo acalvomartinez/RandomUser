@@ -9,7 +9,14 @@
 import Foundation
 import Result
 
-class UsersRichModel {
+protocol UsersRichModelProtocol {
+  func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ())
+  func getUsers(withQueryString queryString: String,_ isActive: Bool, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ())
+  func getDetail(withUsername username: String, _ completion: @escaping (Result<UserViewModel, UsersError>) -> ())
+  func delete(_ user: UserListItemViewModel, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ())
+}
+
+class UsersRichModel: UsersRichModelProtocol {
   static let sharedInstance = UsersRichModel()
   
   fileprivate let repository: UsersRepository

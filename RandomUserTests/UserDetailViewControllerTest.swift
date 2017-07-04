@@ -14,7 +14,7 @@ import UIKit
 
 class UserDetailViewControllerTest: AcceptanceTestCase {
   
-  var usersRichModel = MockUsersRichModel.mockSharedInstance
+  var usersRichModel = MockUsersRichModel()
   
   func testShowsUsernameAsTitle() {
     let user = givenAUser()

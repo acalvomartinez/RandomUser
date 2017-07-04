@@ -10,11 +10,11 @@ import Foundation
 import Result
 
 class GetUsers {
-  fileprivate let richModel: UsersRichModel
+  fileprivate let richModel: UsersRichModelProtocol
   
   static let numberOfItemsInPage = 40
   
-  init(richModel: UsersRichModel) {
+  init(richModel: UsersRichModelProtocol) {
     self.richModel = richModel
   }
   

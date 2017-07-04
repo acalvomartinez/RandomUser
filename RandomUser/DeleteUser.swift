@@ -10,9 +10,9 @@ import Foundation
 import Result
 
 class DeleteUser {
-  fileprivate let richModel: UsersRichModel
+  fileprivate let richModel: UsersRichModelProtocol
   
-  init(richModel: UsersRichModel) {
+  init(richModel: UsersRichModelProtocol) {
     self.richModel = richModel
   }
   

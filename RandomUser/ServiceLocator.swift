@@ -11,7 +11,7 @@ import UIKit
 import BothamUI
 
 class ServiceLocator {
-  var usersRichModel: UsersRichModel = UsersRichModel.sharedInstance
+  var usersRichModel: UsersRichModelProtocol = UsersRichModel.sharedInstance
   
   func provideRootViewController() -> UIViewController {
     let navigationController: UINavigationController = storyBoard.initialViewController()

@@ -11,11 +11,10 @@ import Result
 
 @testable import RandomUser
 
-class MockUsersRichModel: UsersRichModel {
-  static let mockSharedInstance = MockUsersRichModel()
+class MockUsersRichModel: UsersRichModelProtocol {
   var users = [User]()
   
-  override func getDetail(withUsername username: String, _ completion: @escaping (Result<UserViewModel, UsersError>) -> ()) {
+  func getDetail(withUsername username: String, _ completion: @escaping (Result<UserViewModel, UsersError>) -> ()) {
     let userByName = users.filter { $0.username == username }.first! 
     let userViewModel = UserViewModel(username: userByName.username,
                                       displayName: userByName.displayName,
@@ -31,7 +30,7 @@ class MockUsersRichModel: UsersRichModel {
     completion(Result(value:userViewModel))
   }
   
-  override func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
+  func getUsers(page: Int, results: Int, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
     let usersViewModel = users.map {
       UserListItemViewModel(username: $0.username,
                             displayName: $0.displayName,
@@ -42,7 +41,7 @@ class MockUsersRichModel: UsersRichModel {
     completion(Result(value:usersViewModel))
   }
   
-  override func delete(_ user: UserListItemViewModel, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
+  func delete(_ user: UserListItemViewModel, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
     users.remove(at: 1)
     
     let usersViewModel = users.map {
@@ -53,5 +52,9 @@ class MockUsersRichModel: UsersRichModel {
                             photo: $0.picture.pictureURL(size: .medium))
     }
     completion(Result(value:usersViewModel))
+  }
+  
+  func getUsers(withQueryString queryString: String, _ isActive: Bool, _ completion: @escaping (Result<[UserListItemViewModel], UsersError>) -> ()) {
+    
   }
 }
