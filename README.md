@@ -6,7 +6,8 @@ You are working for a company showing random users information (RandomUser Inc.)
 * Be careful, some users can be duplicated. You should take this into account and do not show duplicated users. If Random User API returns the same user more   than once you have to skip it and don’t show it twice to the user.
 * Show a list of random users with this information:
 
-  * User first and last name. ○ User email.
+  * User first and last name.
+  * User email.
   * User picture.
   * User phone.
 
