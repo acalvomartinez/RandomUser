@@ -48,4 +48,6 @@ I used two different kinds of models: I created a DTO that are used in data laye
 
 I created use cases objects with a rich model object, they have the mission of talk with the repository object. This repository access to a API client.
 
+For delete operation, I've implemented iOS swipe action on the table view cell.
+
 This code test has CI with Travis-CI: https://travis-ci.org/acalvomartinez/RandomUser
