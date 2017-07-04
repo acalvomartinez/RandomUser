@@ -1,7 +1,5 @@
 # RandomUser Code Test [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()
 
-## Task
-
 You are working for a company showing random users information (RandomUser Inc.). As a good company based on random users data they want to show random information about random users. Your task for this code test is to design an Android/iOS application (the one you prefer) with these requirements:
 
 * Download a list of random users from http://randomuser.me/ API.
