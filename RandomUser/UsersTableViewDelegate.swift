@@ -23,6 +23,7 @@ public class UsersTableViewNavigationDelegate<T: BothamViewDataSource, U: UsersL
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let item = dataSource.item(at: indexPath)
     presenter.itemWasTapped(item)
+    tableView.deselectRow(at: indexPath, animated: false)
   }
 
   public func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {

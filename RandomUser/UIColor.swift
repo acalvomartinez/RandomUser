@@ -55,35 +55,31 @@ extension UIColor {
   }
   
   static var windowBackgroundColor: UIColor {
-    return UIColor(rgba: "#E63946FF")
+    return UIColor(rgba: "#FFFFFFFF")
   }
   
   static var loadingColor: UIColor {
-    return UIColor(rgba: "#E63946FF")
+    return primaryTextColor
   }
   
   static var navigationBarColor: UIColor {
-    return UIColor(rgba: "#E63946FF")
+    return UIColor(rgba: "#FFFFFFFF")
   }
   
   static var navigationBarTitleColor: UIColor {
-    return UIColor(rgba: "#F1FAEEFF")
-  }
-  
-  static var clearTextColor: UIColor {
-    return navigationBarTitleColor
+    return primaryTextColor
   }
   
   static var cellBackgroundColor: UIColor {
-    return UIColor(rgba: "#F1FAEEFF")
+    return UIColor(rgba: "#FFFFFFFF")
   }
   
   static var primaryTextColor: UIColor {
-    return UIColor(rgba: "#1D3557FF")
+    return UIColor(rgba: "#67255FFF")
   }
   
   static var secondaryTextColor: UIColor {
-    return UIColor(rgba: "#457B9DFF")
+    return UIColor(rgba: "#666666FF")
   }
   
   static var gradientStartColor: UIColor {

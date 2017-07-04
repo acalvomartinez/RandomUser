@@ -35,16 +35,16 @@ class UserDetailViewController: RandomUserViewController, UserUI {
     
     view.backgroundColor = UIColor.detailBackgroundColor
     addressLabel.text = "Address"
-    displayNameLabel.textColor = UIColor.clearTextColor
-    genderLabel.textColor = UIColor.clearTextColor
+    displayNameLabel.textColor = UIColor.white
+    genderLabel.textColor = UIColor.white
     addressLabel.textColor = UIColor.primaryTextColor
-    streetLabel.textColor = UIColor.primaryTextColor
-    cityLabel.textColor = UIColor.primaryTextColor
-    stateLabel.textColor = UIColor.primaryTextColor
+    streetLabel.textColor = UIColor.secondaryTextColor
+    cityLabel.textColor = UIColor.secondaryTextColor
+    stateLabel.textColor = UIColor.secondaryTextColor
     contactLabel.text = "Contact"
     contactLabel.textColor = UIColor.primaryTextColor
-    emailLabel.textColor = UIColor.primaryTextColor
-    phoneLabel.textColor = UIColor.primaryTextColor
+    emailLabel.textColor = UIColor.secondaryTextColor
+    phoneLabel.textColor = UIColor.secondaryTextColor
     registeredLabel.text = "Registered since"
     registeredLabel.textColor = UIColor.primaryTextColor
     registeredDateLabel.textColor = UIColor.secondaryTextColor

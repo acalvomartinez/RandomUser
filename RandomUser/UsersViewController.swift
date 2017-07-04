@@ -21,20 +21,25 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
   override func viewDidLoad() {
     self.title = "Random Users"
     
+    configureTableView()
+    configureSearchController()
+    configureNavigationBarBackButton()
+    
+    super.viewDidLoad()
+  }
+  
+  func configureTableView() {
+    let bgView = UIView()
+    bgView.backgroundColor = UIColor.white
+    
+    tableView.backgroundView = bgView
     tableView.dataSource = dataSource
     tableView.delegate = delegate
     tableView.tableFooterView = UIView()
     tableView.accessibilityLabel = "UsersTableView"
     tableView.accessibilityIdentifier = "UsersTableView"
     
-    tableView.separatorColor = UIColor.secondaryTextColor
-    tableView.backgroundColor = UIColor.cellBackgroundColor
-    
-    configureSearchController()
-    
-    configureNavigationBarBackButton()
-    
-    super.viewDidLoad()
+    tableView.separatorColor = UIColor.secondaryTextColor.withAlphaComponent(0.3)
   }
   
   func openUserDetailScreen(_ userDetailViewController: UIViewController) {
@@ -45,6 +50,7 @@ class UsersViewController: RandomUserViewController, BothamTableViewController, 
     searchController.searchResultsUpdater = presenter as? UISearchResultsUpdating
     searchController.dimsBackgroundDuringPresentation = false
     definesPresentationContext = true
+    searchController.searchBar.searchBarStyle = .minimal
     tableView.tableHeaderView = searchController.searchBar
   }
   

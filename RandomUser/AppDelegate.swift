@@ -41,9 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     navigationBarAppearance.titleTextAttributes = [
       NSForegroundColorAttributeName : UIColor.navigationBarTitleColor
     ]
+    navigationBarAppearance.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+    navigationBarAppearance.shadowImage = UIImage()
     
     UISearchBar.appearance().barTintColor = UIColor.navigationBarColor
-    UISearchBar.appearance().tintColor = UIColor.clearTextColor
+    UISearchBar.appearance().tintColor = UIColor.primaryTextColor
+    
     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.primaryTextColor
   }
 }
